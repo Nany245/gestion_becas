@@ -29,5 +29,11 @@ Plataforma web que permite a los estudiantes buscar, comparar y orientar a estud
 ## Estructura del proyecto
 Contiene frontend, backend y base de datos organizados por módulos.
 
+## POR FAVOR!!
+Trabajar en la rama sub-master(esta es como un borrador), no en la master(esa es la principal). Cambien a esa rama para trabajar con todo.
+Ya al final se hará un apull request para unir los cambios de sub-master con master. 
+
+Si necesitan agregar un archivo para su parte, no duden en hacerlo y subirlo (hacerle commit y push).
+
 ## Autor
 [Diany :D]
