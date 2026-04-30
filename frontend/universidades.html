@@ -1,4 +1,3 @@
-<!--listado de universidades-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,141 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Universidades y Becas | MESCyT 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --crimson: #A51C30;
-  --crimson-dark: #7B1120;
-  --crimson-deep: #4E0A15;
-  --crimson-light: #C5283D;
-  --gold: #C9A84C;
-  --gold-light: #E8C87A;
-  --gold-pale: #FBF4E4;
-  --charcoal: #2E2416;
-  --warm-gray: #6B5B4E;
-  --light-cream: #FAF7F2;
-  --white: #FFFFFF;
-  --border: rgba(169,28,48,0.12);
-  --shadow-sm: 0 2px 10px rgba(78,10,21,0.07);
-  --shadow-md: 0 8px 28px rgba(78,10,21,0.13);
-}
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Source Sans 3', sans-serif; background: var(--light-cream); color: var(--charcoal); line-height: 1.65; }
-
-.site-header { background: var(--crimson-deep); border-bottom: 3px solid var(--gold); padding: 0 40px; position: sticky; top: 0; z-index: 100; }
-.header-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.header-logo { font-family: 'EB Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.03em; }
-.header-logo span { color: rgba(255,255,255,0.5); font-weight: 400; font-size: 0.9rem; margin-left: 8px; }
-.header-cta { background: var(--gold); color: var(--crimson-deep); padding: 8px 20px; border-radius: 4px; font-weight: 600; font-size: 0.87rem; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; }
-.header-cta:hover { background: var(--gold-light); }
-
-.hero { background: linear-gradient(160deg, var(--crimson-deep) 0%, var(--crimson) 60%, #8B1522 100%); padding: 72px 40px 64px; text-align: center; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px); }
-.hero-badge { display: inline-block; background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); font-size: 0.77rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 18px; border-radius: 50px; margin-bottom: 20px; position: relative; }
-.hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 16px; position: relative; max-width: 800px; margin-left: auto; margin-right: auto; }
-.hero h1 em { font-style: normal; color: var(--gold-light); }
-.hero p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 560px; margin: 0 auto 34px; position: relative; }
-.status-strip { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; position: relative; }
-.status-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 22px; display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 210px; }
-.status-item .label { font-size: 0.8rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
-.status-item .value { font-weight: 600; font-size: 0.92rem; color: #FF8080; }
-.status-item .sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
-
-.filters-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 40px; position: sticky; top: 64px; z-index: 90; box-shadow: 0 2px 10px rgba(78,10,21,0.06); }
-.filters-inner { max-width: 1320px; margin: 0 auto; display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
-.filter-label { font-size: 0.77rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--warm-gray); margin-right: 4px; }
-.filter-btn { padding: 6px 15px; border: 1.5px solid #DDD4CC; background: var(--white); border-radius: 50px; cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-weight: 500; font-size: 0.86rem; color: var(--warm-gray); transition: all 0.2s; }
-.filter-btn:hover { border-color: var(--crimson-light); color: var(--crimson); }
-.filter-btn.active { background: var(--crimson); color: var(--white); border-color: var(--crimson); }
-
-.main { max-width: 1320px; margin: 0 auto; padding: 50px 40px 80px; }
-
-.country-section { margin-bottom: 65px; }
-.country-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 2px solid var(--crimson); position: relative; }
-.country-heading::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 55px; height: 2px; background: var(--gold); }
-.flag { font-size: 1.9rem; line-height: 1; }
-.country-heading h3 { font-family: 'EB Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--crimson-deep); letter-spacing: -0.01em; }
-
-.universities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
-
-.university-card { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid #E8DDD7; box-shadow: var(--shadow-sm); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
-.university-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-
-.card-image { height: 180px; overflow: hidden; position: relative; background: var(--crimson-deep); }
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
-.university-card:hover .card-image img { transform: scale(1.04); }
-.card-image-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(78,10,21,0.1) 0%, rgba(78,10,21,0.65) 100%); }
-.card-image-title { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px 14px; font-family: 'EB Garamond', serif; font-size: 1.08rem; font-weight: 600; color: var(--white); line-height: 1.3; }
-.card-country-tag { position: absolute; top: 12px; right: 12px; background: var(--gold); color: var(--crimson-deep); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; padding: 3px 10px; border-radius: 50px; text-transform: uppercase; }
-
-.card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
-
-.card-stats { display: flex; gap: 14px; flex-wrap: wrap; }
-.stat { display: flex; flex-direction: column; gap: 1px; }
-.stat-value { font-size: 0.88rem; font-weight: 600; color: var(--crimson); }
-.stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-gray); }
-.divider { width: 1px; background: #EAE2DC; flex-shrink: 0; }
-
-.university-info { font-size: 0.91rem; color: #4A3B30; line-height: 1.6; flex: 1; }
-
-.tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.tag { font-size: 0.73rem; font-weight: 500; background: #F5EDE8; color: var(--crimson-dark); border: 1px solid #E8D4CC; padding: 3px 10px; border-radius: 50px; }
-
-.card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid #EDE6DF; padding-top: 12px; margin-top: 2px; }
-.status-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 50px; font-size: 0.77rem; font-weight: 600; letter-spacing: 0.02em; background: #FDEAEA; color: #8B1A1A; border: 1px solid #F5C0C0; }
-.status-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #C0392B; flex-shrink: 0; }
-.link-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--crimson); font-weight: 600; font-size: 0.87rem; text-decoration: none; border-bottom: 1.5px solid rgba(165,28,48,0.25); padding-bottom: 1px; transition: all 0.2s; }
-.link-btn:hover { color: var(--crimson-dark); border-bottom-color: var(--crimson-dark); gap: 10px; }
-
-.modalidades { border-top: 1px solid #EDE6DF; padding-top: 12px; }
-.modalidades h5 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); margin-bottom: 7px; }
-.modalidades ul { list-style: none; }
-.modalidades li { font-size: 0.86rem; color: var(--charcoal); padding: 2px 0 2px 13px; position: relative; }
-.modalidades li::before { content: '–'; position: absolute; left: 0; color: var(--gold); }
-
-.notice { background: var(--gold-pale); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 20px 26px; margin: 50px 0 20px; font-size: 0.93rem; }
-.notice strong { color: var(--crimson-deep); }
-.notice a { color: var(--crimson); font-weight: 600; }
-
-footer { background: var(--crimson-deep); border-top: 3px solid var(--gold); text-align: center; padding: 30px 20px; color: rgba(255,255,255,0.55); font-size: 0.88rem; }
-footer strong { color: var(--gold-light); }
-
-@media (max-width: 720px) {
-  .site-header, .filters-bar, .main { padding-left: 18px; padding-right: 18px; }
-  .hero { padding: 52px 18px 44px; }
-  .universities-grid { grid-template-columns: 1fr; }
-  .header-logo span { display: none; }
-  .status-item { min-width: 155px; }
-}
-</style>
+<link rel="stylesheet" href="./css/pages/universidades.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!--Header-->
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">MESCyT <span>Gestión de Becas 2026</span></div>
-    <a href="https://becas.gob.do/" target="_blank" class="header-cta">Ir a becas.gob.do →</a>
+    <div class="header-logo">BecasApp</div>
+    <a href="https://becas.gob.do/" target="_blank" class="header-cta">becas.gob.do →</a>
   </div>
 </header>
 
+<!--Hero-->
 <section class="hero">
-  <div class="hero-badge">Catálogo Oficial · Abril 2026</div>
+  <div class="hero-eyebrow">Catálogo Oficial · Abril 2026</div>
   <h1>Universidades y <em>Becas</em><br>Nacionales e Internacionales</h1>
-  <p>Instituciones recomendadas por el Ministerio de Educación Superior, Ciencia y Tecnología de la República Dominicana.</p>
+  <p class="hero-sub">Instituciones recomendadas por el Ministerio de Educación Superior, Ciencia y Tecnología de la República Dominicana.</p>
   <div class="status-strip">
-    <div class="status-item">
-      <span class="label">Becas Nacionales 2026</span>
-      <span class="value">CONVOCATORIA CERRADA</span>
-      <span class="sub">Consulta reapertura en becas.gob.do</span>
+    <div class="status-pill">
+      <span class="s-label">Becas Nacionales 2026</span>
+      <span class="s-value">● CONVOCATORIA CERRADA</span>
+      <span class="s-sub">Verifica en becas.gob.do</span>
     </div>
-    <div class="status-item">
-      <span class="label">XXII Becas Internacionales 2026</span>
-      <span class="value">CONVOCATORIA CERRADA</span>
-      <span class="sub">Consulta reapertura en becas.gob.do</span>
+    <div class="status-pill">
+      <span class="s-label">XXII Becas Internacionales 2026</span>
+      <span class="s-value">● CONVOCATORIA CERRADA</span>
+      <span class="s-sub">Verifica en becas.gob.do</span>
     </div>
   </div>
 </section>
 
+<!--Filtros-->
 <div class="filters-bar">
   <div class="filters-inner">
     <span class="filter-label">País</span>
@@ -153,59 +50,64 @@ footer strong { color: var(--gold-light); }
     <button class="filter-btn" data-country="japon">🇯🇵 Japón</button>
     <button class="filter-btn" data-country="colombia">🇨🇴 Colombia</button>
     <button class="filter-btn" data-country="china">🇨🇳 China</button>
-    <button class="filter-btn" data-country="mexico">🇲🇽 México</button>
+    <button class="filter-btn" data-country="mexico">🇲🇽 Mexico</button>
   </div>
 </div>
 
+<!--Main -->
 <main class="main">
 
-<!-- REPÚBLICA DOMINICANA -->
+<!--República Dominicana-->
 <section class="country-section" data-country="rd">
   <div class="country-heading"><span class="flag">🇩🇴</span><h3>República Dominicana — Universidades Nacionales</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://www.pucmm.edu.do/SiteAssets/Imagenes/campus-sti.jpg" alt="PUCMM" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/1200px-24701-nature-natural-beauty.jpg'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Santiago / Santo Domingo</span>
-        <div class="card-image-title">Pontificia Universidad Católica Madre y Maestra (PUCMM)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/PUCMM_Campus_Santiago.jpg/1200px-PUCMM_Campus_Santiago.jpg"
+            alt="PUCMM campus"
+            onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Santiago / Santo Domingo</span>
+        <div class="card-img-title">Pontificia Universidad Católica Madre y Maestra (PUCMM)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1962</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 RD</span><span class="stat-label">Ranking nacional</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">2 campus</span><span class="stat-label">STI · SDQ</span></div>
+          <div class="stat"><span class="stat-val">1962</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 RD</span><span class="stat-lbl">Ranking nacional</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">2 campus</span><span class="stat-lbl">STI · SDQ</span></div>
         </div>
-        <p class="university-info">Considerada la mejor universidad privada del país, la PUCMM ofrece programas de excelencia en Ingeniería, Medicina, Derecho, Negocios y Arquitectura. Sus dos campus cuentan con laboratorios de última generación y una sólida red de egresados en el sector público y privado. Forma parte de redes académicas internacionales y tiene convenios con universidades en Europa, Norteamérica y América Latina, siendo la institución dominicana con mayor presencia en rankings regionales.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Medicina</span><span class="tag">Derecho</span><span class="tag">Negocios</span><span class="tag">Arquitectura</span></div>
+        <p class="card-desc">Considerada consistentemente la mejor universidad privada de la República Dominicana, la PUCMM cuenta con dos campus activos —en Santiago de los Caballeros y en Santo Domingo— que forman a miles de profesionales anualmente en áreas de Ingeniería, Medicina, Derecho, Negocios, Arquitectura y Artes. Sus laboratorios de última generación, clínicas universitarias y centros de investigación aplicada le han otorgado reconocimiento internacional y posicionamiento en el ranking QS Latinoamérica. Forma parte de redes académicas internacionales de alto nivel y tiene convenios activos con más de 80 universidades en Europa, Norteamérica y América Latina. Sus egresados lideran los principales sectores del desarrollo económico y social del país.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Medicina</span><span class="tag">Derecho</span><span class="tag">Negocios</span><span class="tag">Arquitectura</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.pucmm.edu.do" target="_blank" class="link-btn">Sitio oficial →</a>
         </div>
-        <div class="modalidades"><h5>Modalidades de aplicación</h5><ul><li>Aplicación Regular (convocatoria MESCyT)</li><li>Aplicación Temprana (carreras seleccionadas)</li></ul></div>
+        <div class="modalidades"><h5>Modalidades</h5><ul><li>Aplicación Regular (convocatoria MESCyT)</li><li>Aplicación Temprana (carreras seleccionadas)</li></ul></div>
       </div>
     </div>
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://www.intec.edu.do/images/noticias/QS-Stars-INTEC.jpg" alt="INTEC" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Santo Domingo</span>
-        <div class="card-image-title">Instituto Tecnológico de Santo Domingo (INTEC)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Intec_Logo.jpg/1200px-Intec_Logo.jpg"
+            alt="INTEC"
+            onerror="this.src='https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Santo Domingo</span>
+        <div class="card-img-title">Instituto Tecnológico de Santo Domingo (INTEC)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1972</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">QS Stars</span><span class="stat-label">4 estrellas</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Alta</span><span class="stat-label">Empleabilidad</span></div>
+          <div class="stat"><span class="stat-val">1972</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">QS ★★★★</span><span class="stat-lbl">4 estrellas</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Alta</span><span class="stat-lbl">Empleabilidad</span></div>
         </div>
-        <p class="university-info">INTEC es la institución de referencia en ciencias e ingeniería en República Dominicana. Su modelo educativo basado en investigación aplicada y resolución de problemas reales la distingue en el mercado laboral. Reconocida con cuatro estrellas QS Stars, cuenta con laboratorios de biotecnología, robótica y ciencias de datos. Sus graduados tienen una de las tasas de empleabilidad más altas del país, liderando los principales sectores tecnológicos dominicanos y caribeños.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Tecnología</span><span class="tag">Ciencias</span><span class="tag">Biotecnología</span></div>
+        <p class="card-desc">INTEC es la institución dominicana de referencia en ciencias exactas, ingeniería y tecnología. Desde su fundación ha apostado por un modelo educativo de alta exigencia académica, investigación aplicada y resolución de problemas reales del entorno nacional. Reconocida internacionalmente con cuatro estrellas QS Stars, INTEC cuenta con laboratorios especializados en biotecnología, robótica, nanotecnología y ciencias de datos. Sus vínculos con el sector empresarial dominicano garantizan que sus graduados tengan una de las tasas de inserción laboral más altas del país. Participa activamente en proyectos de investigación regionales financiados por la Unión Europea y la OEA. Es también la universidad dominicana con mayor número de publicaciones científicas indexadas por habitante.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Tecnología</span><span class="tag">Biotecnología</span><span class="tag">Cs. de Datos</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.intec.edu.do" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -216,21 +118,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Rectoría_de_la_UASD.jpg/1200px-Rectoría_de_la_UASD.jpg" alt="UASD" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Santo Domingo</span>
-        <div class="card-image-title">Universidad Autónoma de Santo Domingo (UASD)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Rector%C3%ADa_de_la_UASD.jpg/1200px-Rector%C3%ADa_de_la_UASD.jpg"
+            alt="UASD"
+            onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Santo Domingo</span>
+        <div class="card-img-title">Universidad Autónoma de Santo Domingo (UASD)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1538</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">+200K</span><span class="stat-label">Estudiantes</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Pública</span><span class="stat-label">Gratuita</span></div>
+          <div class="stat"><span class="stat-val">1538</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">+200K</span><span class="stat-lbl">Estudiantes</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Pública</span><span class="stat-lbl">Gratuita</span></div>
         </div>
-        <p class="university-info">La UASD es la universidad más antigua del continente americano —fundada en 1538— y la institución pública de educación superior más grande de la República Dominicana. Ofrece más de 170 carreras en todas las áreas del conocimiento. Su carácter autónomo y gratuito la convierte en la principal puerta de acceso a la educación universitaria para la mayoría de los dominicanos. Tiene sedes regionales en todo el país y programas nocturnos que facilitan el estudio a personas que trabajan.</p>
-        <div class="tags"><span class="tag">Derecho</span><span class="tag">Medicina</span><span class="tag">Educación</span><span class="tag">Humanidades</span><span class="tag">Ciencias</span></div>
+        <p class="card-desc">Fundada en 1538, la UASD es la universidad más antigua del hemisferio occidental y la institución pública de educación superior más grande de la República Dominicana. Con más de 200,000 estudiantes activos y más de 170 carreras distribuidas en sus facultades y extensiones regionales, representa la principal puerta de acceso a la educación universitaria para la mayoría de los dominicanos. Su autonomía institucional, garantizada por la Constitución, le permite establecer sus propias políticas académicas e investigativas. Tiene sedes en todo el país, programas nocturnos para trabajadores y una infraestructura académica que cubre todas las áreas del conocimiento desde humanidades y ciencias sociales hasta ingeniería y ciencias de la salud.</p>
+        <div class="card-tags"><span class="tag">Derecho</span><span class="tag">Medicina</span><span class="tag">Educación</span><span class="tag">Humanidades</span><span class="tag">Ciencias</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.uasd.edu.do" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -241,21 +145,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/UNPHU_Fachada.jpg/1200px-UNPHU_Fachada.jpg" alt="UNPHU" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Santo Domingo</span>
-        <div class="card-image-title">Universidad Nacional Pedro Henríquez Ureña (UNPHU)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/UNPHU.jpg/1200px-UNPHU.jpg"
+            alt="UNPHU"
+            onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Santo Domingo</span>
+        <div class="card-img-title">Universidad Nacional Pedro Henríquez Ureña (UNPHU)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1966</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 5</span><span class="stat-label">Ranking RD</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Privada</span><span class="stat-label">Sin fines de lucro</span></div>
+          <div class="stat"><span class="stat-val">1966</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 5</span><span class="stat-lbl">Ranking RD</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Privada</span><span class="stat-lbl">Sin fines de lucro</span></div>
         </div>
-        <p class="university-info">La UNPHU es reconocida por su sólida formación en Arquitectura y Urbanismo, considerada entre las mejores escuelas del Caribe en esa disciplina. También destaca en Ciencias de la Salud, Odontología y Ciencias Sociales. Su campus en Santo Domingo cuenta con hospitales universitarios y clínicas odontológicas donde los estudiantes desarrollan competencias clínicas reales desde los primeros años. Promueve la investigación aplicada al entorno dominicano y caribeño.</p>
-        <div class="tags"><span class="tag">Arquitectura</span><span class="tag">Odontología</span><span class="tag">Salud</span><span class="tag">Cs. Sociales</span></div>
+        <p class="card-desc">La UNPHU es reconocida especialmente por su Escuela de Arquitectura y Urbanismo, considerada entre las más prestigiosas del Caribe. También destaca en Ciencias de la Salud —con hospitales y clínicas universitarias propias donde los estudiantes realizan prácticas desde los primeros años—, Odontología, Ingeniería y Ciencias Sociales. Su campus en Santo Domingo integra áreas clínicas y de simulación médica con instalaciones deportivas y culturales. Promueve activamente la investigación enfocada en las problemáticas del entorno dominicano y caribeño: gestión de riesgos, urbanismo tropical, biodiversidad y salud pública. Tiene convenios con instituciones de España, Puerto Rico y varios países latinoamericanos.</p>
+        <div class="card-tags"><span class="tag">Arquitectura</span><span class="tag">Odontología</span><span class="tag">Salud</span><span class="tag">Ingeniería</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.unphu.edu.do" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -267,28 +173,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- ESTADOS UNIDOS -->
+<!--Estados Unidos -->
 <section class="country-section" data-country="usa">
   <div class="country-heading"><span class="flag">🇺🇸</span><h3>Estados Unidos</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Purdue_University_Hovde_Hall.jpg/1200px-Purdue_University_Hovde_Hall.jpg" alt="Purdue" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Purdue_Mall_fountain.jpg/1200px-Purdue_Mall_fountain.jpg'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">West Lafayette, Indiana</span>
-        <div class="card-image-title">Purdue University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Purdue_University_Hovde_Hall.jpg/1200px-Purdue_University_Hovde_Hall.jpg"
+            alt="Purdue"
+            onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">West Lafayette, Indiana</span>
+        <div class="card-img-title">Purdue University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1869</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 10</span><span class="stat-label">Ingeniería EE.UU.</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">13 Nobel</span><span class="stat-label">Egresados</span></div>
+          <div class="stat"><span class="stat-val">1869</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 10</span><span class="stat-lbl">Ingeniería EE.UU.</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">13 Nobel</span><span class="stat-lbl">Egresados</span></div>
         </div>
-        <p class="university-info">Purdue es una de las universidades de ingeniería y tecnología más influyentes del mundo — alma máter de Neil Armstrong y 23 astronautas de la NASA. Frecuentemente listada en las convocatorias del MESCyT, ofrece programas de maestría y doctorado con amplias oportunidades de asistencia financiada. Su campus de más de 2,400 acres integra laboratorios de punta y parques tecnológicos con empresas Fortune 500. Especialmente fuerte en Ingeniería Aeronáutica, Ciencias de Alimentos y Farmacia.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Aeronáutica</span><span class="tag">Ciencias</span><span class="tag">Farmacia</span></div>
+        <p class="card-desc">Purdue es una de las universidades de ingeniería y tecnología más influyentes del mundo, y la que con mayor frecuencia aparece en las convocatorias internacionales del MESCyT. Alma máter de Neil Armstrong y 23 astronautas de la NASA, Purdue ha formado a los pioneros de la aviación y la exploración espacial de los Estados Unidos. Sus departamentos de Ingeniería Aeroespacial, Eléctrica, Mecánica, Química y Ciencias de la Computación figuran consistentemente entre los mejores 10 del país. Su campus de más de 2,400 acres en West Lafayette integra laboratorios de punta, un aeropuerto universitario propio y un parque tecnológico con empresas Fortune 500. Los becados del MESCyT en Purdue acceden a programas de asistencia de investigación que con frecuencia cubren matrícula y estipendio mensual adicional.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Aeronáutica</span><span class="tag">Computación</span><span class="tag">Farmacia</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.purdue.edu" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -298,21 +206,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GK_MIT_Dome_2008b.jpg/1200px-GK_MIT_Dome_2008b.jpg" alt="MIT" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Cambridge, Massachusetts</span>
-        <div class="card-image-title">Massachusetts Institute of Technology (MIT)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GK_MIT_Dome_2008b.jpg/1200px-GK_MIT_Dome_2008b.jpg"
+            alt="MIT"
+            onerror="this.src='https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Cambridge, Massachusetts</span>
+        <div class="card-img-title">Massachusetts Institute of Technology (MIT)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">#1 QS</span><span class="stat-label">Ranking mundial</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">97 Nobel</span><span class="stat-label">Afiliados</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">1861</span><span class="stat-label">Fundación</span></div>
+          <div class="stat"><span class="stat-val">#1 QS</span><span class="stat-lbl">Ranking mundial</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">97 Nobel</span><span class="stat-lbl">Afiliados</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">1861</span><span class="stat-lbl">Fundación</span></div>
         </div>
-        <p class="university-info">El MIT es la mejor universidad del mundo según el QS World Rankings. Su enfoque en ciencia aplicada e innovación ha producido más de 97 premios Nobel y más de 26 premios Turing. La universidad invierte más de $2.8 billones anuales en investigación. Sus programas de maestría en Ingeniería, Informática, Economía e Inteligencia Artificial son los más competitivos del planeta, con tasas de admisión inferiores al 4%. Sus egresados han fundado empresas como Dropbox, Bose, McDonnell Douglas e iRobot.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">IA &amp; Computación</span><span class="tag">Física</span><span class="tag">Economía</span></div>
+        <p class="card-desc">El MIT ocupa el primer lugar en el QS World University Rankings de forma prácticamente ininterrumpida desde hace más de una década. Con 97 premios Nobel y 26 premios Turing entre sus afiliados, la institución invierte más de $2.8 mil millones anuales en investigación, más que muchos gobiernos nacionales. Sus laboratorios como el CSAIL (Computación e Inteligencia Artificial), el Media Lab y el Lincoln Laboratory son incubadoras de tecnologías que definen el mundo. Empresas como Dropbox, Bose, Akamai e iRobot fueron fundadas por egresados del MIT. Sus programas de posgrado —en especial en Ingeniería, Ciencias de la Computación, Economía e Inteligencia Artificial— tienen tasas de admisión inferiores al 4%, siendo los más selectivos y demandados del planeta.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">IA & Computación</span><span class="tag">Física</span><span class="tag">Economía</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://web.mit.edu" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -322,21 +232,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Harvard_University_buildings_2.jpg/1200px-Harvard_University_buildings_2.jpg" alt="Harvard" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Cambridge, Massachusetts</span>
-        <div class="card-image-title">Harvard University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Harvard_University_buildings_2.jpg/1200px-Harvard_University_buildings_2.jpg"
+            alt="Harvard"
+            onerror="this.src='https://images.unsplash.com/photo-1559135197-8a45ea74d367?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Cambridge, Massachusetts</span>
+        <div class="card-img-title">Harvard University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1636</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">161 Nobel</span><span class="stat-label">Afiliados</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">$50B+</span><span class="stat-label">Endowment</span></div>
+          <div class="stat"><span class="stat-val">1636</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">161 Nobel</span><span class="stat-lbl">Afiliados</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">$50B+</span><span class="stat-lbl">Endowment</span></div>
         </div>
-        <p class="university-info">Harvard es la universidad más antigua de los Estados Unidos, fundada en 1636. Con un endowment superior a los $50 mil millones, ofrece becas que cubren el 100% de la educación para familias de bajos ingresos. Sus escuelas de Derecho, Medicina, Gobierno y Negocios (Harvard Business School) son referentes globales absolutos. Ha formado a ocho presidentes de EE.UU. y líderes de todas las disciplinas. La paleta de colores de esta misma página está inspirada en el carmesí de Harvard.</p>
-        <div class="tags"><span class="tag">Derecho</span><span class="tag">Medicina</span><span class="tag">Negocios</span><span class="tag">Gobierno</span><span class="tag">Humanidades</span></div>
+        <p class="card-desc">Harvard es la universidad más antigua de los Estados Unidos, fundada en 1636, y uno de los nombres más reconocidos en la historia de la educación superior mundial. Con un endowment que supera los $50 mil millones —el mayor de cualquier institución académica en el planeta—, Harvard puede ofrecer becas que cubren el 100% de la educación para familias de ingresos bajos y medios. Sus escuelas de Derecho, Medicina, Gobierno (Kennedy School), Negocios (HBS) y Diseño son referentes globales absolutos. Ha formado a ocho presidentes de los Estados Unidos, decenas de jefes de Estado extranjeros y los principales líderes del pensamiento mundial en todas las disciplinas. Esta misma página utiliza su icónico color carmesí como homenaje a su identidad visual centenaria.</p>
+        <div class="card-tags"><span class="tag">Derecho</span><span class="tag">Medicina</span><span class="tag">Negocios</span><span class="tag">Gobierno</span><span class="tag">Humanidades</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.harvard.edu" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -346,21 +258,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sather_tower_from_afar.jpg/1200px-Sather_tower_from_afar.jpg" alt="Berkeley" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Berkeley, California</span>
-        <div class="card-image-title">University of California, Berkeley</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sather_tower_from_afar.jpg/1200px-Sather_tower_from_afar.jpg"
+            alt="UC Berkeley"
+            onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Berkeley, California</span>
+        <div class="card-img-title">University of California, Berkeley</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1868</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">107 Nobel</span><span class="stat-label">Afiliados</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 pública</span><span class="stat-label">EE.UU.</span></div>
+          <div class="stat"><span class="stat-val">1868</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">107 Nobel</span><span class="stat-lbl">Afiliados</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 pública</span><span class="stat-lbl">EE.UU.</span></div>
         </div>
-        <p class="university-info">UC Berkeley es la universidad pública más prestigiosa de Estados Unidos y un epicentro de innovación tecnológica próximo a Silicon Valley. Su facultad de Ingeniería Eléctrica y Ciencias de la Computación tiene vínculos directos con Apple, Google e Intel. Es también referente en Derecho, Economía, Ciencias Políticas y Estudios Ambientales. Con 107 premios Nobel afiliados, Berkeley lidera la investigación universitaria pública mundial. Sus programas de posgrado tienen tasas de admisión competitivas pero menores que las universidades privadas de élite.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Computación</span><span class="tag">Cs. Políticas</span><span class="tag">Medio Ambiente</span></div>
+        <p class="card-desc">UC Berkeley es la universidad pública más prestigiosa de los Estados Unidos y un epicentro de la innovación tecnológica global, ubicada a pocos kilómetros del corazón de Silicon Valley. Su departamento de EECS (Ingeniería Eléctrica y Ciencias de la Computación) ha producido fundadores y líderes de Apple, Google, Intel, Sun Microsystems y cientos de startups. Con 107 premios Nobel entre sus afiliados, Berkeley lidera la investigación universitaria pública a nivel mundial. También es referente en Derecho, Economía del Comportamiento, Ciencias Políticas, Estudios Ambientales y Periodismo. Sus tarifas de matrícula, aunque elevadas para estudiantes internacionales, resultan considerablemente menores que las de instituciones privadas equivalentes.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Computación</span><span class="tag">Economía</span><span class="tag">Medio Ambiente</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.berkeley.edu" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -371,28 +285,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- CANADÁ -->
+<!--Canadá-->
 <section class="country-section" data-country="canada">
   <div class="country-heading"><span class="flag">🇨🇦</span><h3>Canadá</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/University_College_at_the_University_of_Toronto.jpg/1200px-University_College_at_the_University_of_Toronto.jpg" alt="U of T" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Toronto, Ontario</span>
-        <div class="card-image-title">University of Toronto</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/University_College_at_the_University_of_Toronto.jpg/1200px-University_College_at_the_University_of_Toronto.jpg"
+            alt="U of T"
+            onerror="this.src='https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Toronto, Ontario</span>
+        <div class="card-img-title">University of Toronto</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1827</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 Canadá</span><span class="stat-label">Ranking nacional</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 25</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1827</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 Canadá</span><span class="stat-lbl">Ranking</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 25</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">La U de Toronto es la mejor universidad de Canadá y se ubica entre las 25 mejores del mundo. Pionera en investigación médica — donde se descubrió la insulina — y con uno de los programas de inteligencia artificial más avanzados del planeta a través del Vector Institute. Su entorno multicultural en la ciudad más diversa de Norteamérica ofrece una experiencia académica única para estudiantes latinoamericanos. Fuerte también en Farmacia, Derecho e Ingeniería con vínculos directos con la industria tecnológica de Toronto.</p>
-        <div class="tags"><span class="tag">Medicina</span><span class="tag">IA</span><span class="tag">Derecho</span><span class="tag">Ingeniería</span><span class="tag">Farmacia</span></div>
+        <p class="card-desc">La Universidad de Toronto es consistentemente la mejor universidad de Canadá y se ubica entre las 25 mejores del mundo. Fue pionera en investigación médica de impacto global —fue aquí donde Frederick Banting y Charles Best descubrieron la insulina en 1921, salvando millones de vidas—. Hoy alberga el Vector Institute, uno de los centros de inteligencia artificial más avanzados del planeta, donde trabajan figuras como Geoffrey Hinton, considerado el "padrino de la IA". Su entorno en Toronto —la ciudad más multicultural de Norteamérica, con más de 200 idiomas hablados— ofrece una experiencia académica y cultural única para estudiantes latinoamericanos. Fuerte también en Farmacia, Derecho internacional, Ingeniería y Negocios.</p>
+        <div class="card-tags"><span class="tag">Medicina</span><span class="tag">IA</span><span class="tag">Derecho</span><span class="tag">Farmacia</span><span class="tag">Ingeniería</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.utoronto.ca" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -402,21 +318,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/McGill_University_Arts_Building_2.jpg/1200px-McGill_University_Arts_Building_2.jpg" alt="McGill" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Montreal, Quebec</span>
-        <div class="card-image-title">McGill University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/McGill_University_Arts_Building_2.jpg/1200px-McGill_University_Arts_Building_2.jpg"
+            alt="McGill"
+            onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Montreal, Quebec</span>
+        <div class="card-img-title">McGill University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1821</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">12 Nobel</span><span class="stat-label">Afiliados</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Bilingüe</span><span class="stat-label">EN / FR</span></div>
+          <div class="stat"><span class="stat-val">1821</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">12 Nobel</span><span class="stat-lbl">Afiliados</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Bilingüe</span><span class="stat-lbl">EN / FR</span></div>
         </div>
-        <p class="university-info">McGill es una de las universidades más reconocidas del mundo de habla inglesa, ubicada en Montreal, ciudad bilingüe con un costo de vida mucho más accesible que otras metrópolis norteamericanas. Su Facultad de Medicina es considerada la mejor de Canadá. Sus programas de Derecho, Ciencias y Música son referentes internacionales. McGill atrae más del 30% de estudiantes internacionales y fue elegida en múltiples ocasiones como "la universidad más internacional de Norteamérica" por Times Higher Education.</p>
-        <div class="tags"><span class="tag">Medicina</span><span class="tag">Derecho</span><span class="tag">Ciencias</span><span class="tag">Música</span></div>
+        <p class="card-desc">McGill es una de las universidades más reconocidas del mundo de habla inglesa y ha sido elegida en múltiples ocasiones como "la universidad más internacional de Norteamérica" por Times Higher Education, con más del 30% de sus estudiantes provenientes del extranjero. Ubicada en Montreal —ciudad bilingüe (inglés-francés) con un costo de vida considerablemente más bajo que Toronto o Vancouver—, McGill ofrece una de las mejores relaciones calidad-costo de Norteamérica. Su Facultad de Medicina es considerada la mejor de Canadá, y sus programas de Derecho, Ciencias de la Vida, Música y Economía son referentes internacionales. El campus principal en el centro de Montreal, rodeado de arquitectura victoriana, es uno de los más bellos de América del Norte.</p>
+        <div class="card-tags"><span class="tag">Medicina</span><span class="tag">Derecho</span><span class="tag">Ciencias</span><span class="tag">Música</span><span class="tag">Economía</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.mcgill.ca" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -426,21 +344,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/UBC_Martha_Piper_Plaza.jpg/1200px-UBC_Martha_Piper_Plaza.jpg" alt="UBC" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Vancouver, Columbia Británica</span>
-        <div class="card-image-title">University of British Columbia (UBC)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/UBC_Martha_Piper_Plaza.jpg/1200px-UBC_Martha_Piper_Plaza.jpg"
+            alt="UBC"
+            onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Vancouver, C. Británica</span>
+        <div class="card-img-title">University of British Columbia (UBC)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1908</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 40</span><span class="stat-label">Ranking QS</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Vancouver</span><span class="stat-label">Costa del Pacífico</span></div>
+          <div class="stat"><span class="stat-val">1908</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 40</span><span class="stat-lbl">QS Mundial</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Pacífico</span><span class="stat-lbl">Costa occidental</span></div>
         </div>
-        <p class="university-info">UBC está en Vancouver, una de las ciudades con mayor calidad de vida del mundo, a orillas del Pacífico y frente a las Montañas Rocosas. Es un centro de investigación en Ciencias Ambientales, Forestería, Ingeniería de Recursos Naturales y Biotecnología. Su campus de Point Grey es uno de los más hermosos y extensos de Norteamérica. Tiene fuertes vínculos con la industria tecnológica del corredor Vancouver-Seattle. Ideal para estudiantes interesados en sostenibilidad y cambio climático.</p>
-        <div class="tags"><span class="tag">Medio Ambiente</span><span class="tag">Ingeniería</span><span class="tag">Ciencias</span><span class="tag">Forestería</span></div>
+        <p class="card-desc">UBC está ubicada en Vancouver, constantemente clasificada como una de las ciudades con mayor calidad de vida del mundo, a orillas del Pacífico y con las Montañas Rocosas como telón de fondo. Es un centro de investigación de clase mundial en Ciencias Ambientales, Forestería, Biotecnología, Ingeniería de Recursos Naturales y Políticas Públicas. Su campus de Point Grey, con más de 400 hectáreas frente al océano, es uno de los más espectaculares de Norteamérica. Tiene fuertes vínculos con el corredor tecnológico Vancouver-Seattle, siendo cuna de empresas de videojuegos (Electronic Arts, Hootsuite) y biotecnología. Particularmente recomendada para estudiantes interesados en sostenibilidad, cambio climático y gestión ambiental.</p>
+        <div class="card-tags"><span class="tag">Medio Ambiente</span><span class="tag">Ingeniería</span><span class="tag">Biotecnología</span><span class="tag">Políticas Públicas</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.ubc.ca" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -450,21 +370,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/University_of_Alberta_-_HUB_Mall.jpg/1200px-University_of_Alberta_-_HUB_Mall.jpg" alt="U Alberta" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Edmonton, Alberta</span>
-        <div class="card-image-title">University of Alberta</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/University_of_Alberta_-_HUB_Mall.jpg/1200px-University_of_Alberta_-_HUB_Mall.jpg"
+            alt="U Alberta"
+            onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Edmonton, Alberta</span>
+        <div class="card-img-title">University of Alberta</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1908</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 5</span><span class="stat-label">Energía, Canadá</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">$600M+</span><span class="stat-label">En investigación</span></div>
+          <div class="stat"><span class="stat-val">1908</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 5</span><span class="stat-lbl">Energía, Canadá</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">$600M+</span><span class="stat-lbl">En investigación</span></div>
         </div>
-        <p class="university-info">La Universidad de Alberta es el centro por excelencia para estudios en ingeniería de petróleo, energías renovables y ciencias ambientales en Canadá. Ubicada en Edmonton, capital energética del país, ofrece conexiones directas con la industria del sector. También destaca en Inteligencia Artificial — el AMII (Alberta Machine Intelligence Institute) tiene sede aquí — y en Medicina. Destina más de $600 millones anuales a investigación, siendo una de las más productivas de Norteamérica. Sus programas de maestría son altamente competitivos.</p>
-        <div class="tags"><span class="tag">Energía</span><span class="tag">Ingeniería</span><span class="tag">IA</span><span class="tag">Medicina</span></div>
+        <p class="card-desc">La Universidad de Alberta es el centro por excelencia para estudios en ingeniería de petróleo, energías renovables y ciencias ambientales en Canadá. Ubicada en Edmonton, capital energética del país, ofrece conexiones directas con la industria energética más grande de Norteamérica. El Alberta Machine Intelligence Institute (AMII), con sede en esta universidad, es uno de los tres centros de excelencia en IA reconocidos globalmente por el gobierno canadiense. Destina más de $600 millones anuales a investigación. Sus programas de maestría en Ingeniería de Petróleo, Inteligencia Artificial, Medicina y Ciencias Ambientales son competitivos internacionalmente, con posibilidades de financiamiento combinado entre becas canadienses y las del MESCyT.</p>
+        <div class="card-tags"><span class="tag">Energía</span><span class="tag">IA</span><span class="tag">Ingeniería</span><span class="tag">Medicina</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.ualberta.ca" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -475,28 +397,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- ESPAÑA -->
+<!--España-->
 <section class="country-section" data-country="espana">
   <div class="country-heading"><span class="flag">🇪🇸</span><h3>España</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Edifici_historicUB.jpg/1200px-Edifici_historicUB.jpg" alt="UB" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Barcelona, Cataluña</span>
-        <div class="card-image-title">Universidad de Barcelona (UB)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Edifici_historicUB.jpg/1200px-Edifici_historicUB.jpg"
+            alt="UB"
+            onerror="this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Barcelona, Cataluña</span>
+        <div class="card-img-title">Universidad de Barcelona (UB)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1450</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 España</span><span class="stat-label">Ranking nacional</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">+100</span><span class="stat-label">Titulaciones</span></div>
+          <div class="stat"><span class="stat-val">1450</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 España</span><span class="stat-lbl">QS ranking</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">+100</span><span class="stat-lbl">Titulaciones</span></div>
         </div>
-        <p class="university-info">La Universidad de Barcelona es la institución académica más antigua y prestigiosa de España, con más de 570 años de historia. Ubicada en el corazón de Barcelona, una de las ciudades más vibrantes de Europa, es la primera universidad española en el QS World Rankings. Excelente en Química, Biología, Farmacia, Humanidades y Ciencias Sociales. Para estudiantes dominicanos, España ofrece la ventaja del idioma compartido y un sistema de convalidación de títulos favorecido por convenios bilaterales históricos con la República Dominicana.</p>
-        <div class="tags"><span class="tag">Química</span><span class="tag">Biología</span><span class="tag">Farmacia</span><span class="tag">Humanidades</span></div>
+        <p class="card-desc">Con más de 570 años de historia, la Universidad de Barcelona es la institución académica más antigua y prestigiosa de España, y la primera universidad española en el QS World University Rankings. Ubicada en el corazón de Barcelona —una de las ciudades más vibrantes, cosmopolitas y culturalmente ricas de Europa—, la UB ofrece más de 100 titulaciones de grado y un extenso catálogo de posgrados y doctorados. Excelente en Química, Biología, Farmacología, Economía, Humanidades y Ciencias Sociales. Para estudiantes dominicanos, España representa la opción más accesible culturalmente: mismo idioma, facilidades de convalidación de títulos garantizadas por convenios bilaterales históricos y un costo de vida razonable en comparación con otros destinos europeos de calidad equivalente.</p>
+        <div class="card-tags"><span class="tag">Química</span><span class="tag">Biología</span><span class="tag">Farmacia</span><span class="tag">Humanidades</span><span class="tag">Economía</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.ub.edu" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -506,21 +430,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/UPV_Campus_Vera_Valencia.jpg/1200px-UPV_Campus_Vera_Valencia.jpg" alt="UPV" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Valencia</span>
-        <div class="card-image-title">Universitat Politècnica de València (UPV)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/UPV_Campus_Vera_Valencia.jpg/1200px-UPV_Campus_Vera_Valencia.jpg"
+            alt="UPV"
+            onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Valencia</span>
+        <div class="card-img-title">Universitat Politècnica de València (UPV)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1968</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 3</span><span class="stat-label">Politécnicas España</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">4 campus</span><span class="stat-label">Valencia</span></div>
+          <div class="stat"><span class="stat-val">1968</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 3</span><span class="stat-lbl">Politécnicas España</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">4 campus</span><span class="stat-lbl">Valencia</span></div>
         </div>
-        <p class="university-info">La UPV es una de las universidades técnicas más destacadas de España y Europa, con reconocimiento especial en Ingeniería Industrial, Telecomunicaciones, Informática y Arquitectura. Su Campus de Vera en Valencia alberga institutos de investigación en robótica, energías renovables y diseño gráfico. Es habitual en las convocatorias del MESCyT para programas de maestría en ingeniería. Valencia ofrece un clima mediterráneo envidiable y un costo de vida significativamente más accesible que Madrid o Barcelona.</p>
-        <div class="tags"><span class="tag">Ing. Industrial</span><span class="tag">Telecomunicaciones</span><span class="tag">Informática</span><span class="tag">Arquitectura</span></div>
+        <p class="card-desc">La UPV es una de las universidades técnicas más destacadas de España y de Europa, con reconocimiento especial en Ingeniería Industrial, Telecomunicaciones, Informática, Arquitectura y Diseño. Su Campus de Vera, en Valencia, alberga institutos de investigación punteros en robótica, energías renovables, diseño gráfico y materiales avanzados. Es habitual en las convocatorias del MESCyT para programas de maestría en ingeniería. Valencia, tercera ciudad de España, ofrece un clima mediterráneo excepcional, una gastronomía reconocida mundialmente (hogar de la paella original) y un costo de vida significativamente más accesible que Madrid o Barcelona, lo que maximiza el valor de la beca para el estudiante dominicano.</p>
+        <div class="card-tags"><span class="tag">Ing. Industrial</span><span class="tag">Telecomunicaciones</span><span class="tag">Robótica</span><span class="tag">Arquitectura</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.upv.es" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -530,21 +456,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Nebrija_universidad.jpg/1200px-Nebrija_universidad.jpg" alt="Nebrija" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Madrid</span>
-        <div class="card-image-title">Universidad Nebrija</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Nebrija_Universidad_campus.jpg/1200px-Nebrija_Universidad_campus.jpg"
+            alt="Nebrija"
+            onerror="this.src='https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Madrid</span>
+        <div class="card-img-title">Universidad Nebrija</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1995</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Convenio</span><span class="stat-label">MESCyT activo</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Madrid</span><span class="stat-label">Capital española</span></div>
+          <div class="stat"><span class="stat-val">1995</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Convenio</span><span class="stat-lbl">MESCyT activo</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Madrid</span><span class="stat-lbl">Capital española</span></div>
         </div>
-        <p class="university-info">Nebrija es una universidad privada madrileña con perfil altamente internacional y convenios directos con el MESCyT que la colocan frecuentemente en las convocatorias de becas dominicanas. Especializada en Comunicación, Turismo, Administración de Empresas, Derecho y Tecnología, ofrece programas en inglés y español. Su campus en Madrid facilita el acceso a prácticas en empresas multinacionales. Tiene uno de los programas más activos de apoyo a estudiantes latinoamericanos en España, con servicios de orientación desde antes de la llegada.</p>
-        <div class="tags"><span class="tag">Comunicación</span><span class="tag">Turismo</span><span class="tag">Empresas</span><span class="tag">Derecho</span></div>
+        <p class="card-desc">Nebrija es una universidad privada madrileña con perfil altamente internacional y convenios directos con el MESCyT que la colocan sistemáticamente en las convocatorias de becas dominicanas. Especializada en Comunicación, Turismo, Administración de Empresas, Derecho y Tecnología, ofrece programas en inglés y español con metodologías innovadoras orientadas al mercado laboral europeo. Su campus en el centro de Madrid facilita el acceso a prácticas en empresas multinacionales con sede en la capital española. Tiene uno de los programas más activos de apoyo integral a estudiantes latinoamericanos: desde servicios de acogida pre-llegada hasta bolsas de empleo exclusivas para extranjeros. Su tamaño humano garantiza atención personalizada que las grandes universidades públicas no pueden ofrecer.</p>
+        <div class="card-tags"><span class="tag">Comunicación</span><span class="tag">Turismo</span><span class="tag">Empresas</span><span class="tag">Derecho</span><span class="tag">Tecnología</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.nebrija.com" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -554,21 +482,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/UC3M_Leganes_Campus.jpg/1200px-UC3M_Leganes_Campus.jpg" alt="UC3M" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Madrid</span>
-        <div class="card-image-title">Universidad Carlos III de Madrid</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/UC3M_Leganes_Campus.jpg/1200px-UC3M_Leganes_Campus.jpg"
+            alt="UC3M"
+            onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Madrid</span>
+        <div class="card-img-title">Universidad Carlos III de Madrid</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1989</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 5</span><span class="stat-label">Economía España</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">30%+</span><span class="stat-label">Internacionales</span></div>
+          <div class="stat"><span class="stat-val">1989</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 5</span><span class="stat-lbl">Economía España</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">30%+</span><span class="stat-lbl">Internacionales</span></div>
         </div>
-        <p class="university-info">La UC3M es una de las universidades públicas más jóvenes y de mayor proyección de España, con reputación excepcional en Economía, Derecho y Ciencias Sociales. Sus programas de Economía Cuantitativa y Administración de Empresas son comparables a los de instituciones privadas de élite europeas. Con tres campus en el área metropolitana de Madrid, tiene más del 30% de estudiantes internacionales y ofrece numerosos programas de doble titulación con universidades europeas y norteamericanas. Su tasa de inserción laboral supera el 95%.</p>
-        <div class="tags"><span class="tag">Economía</span><span class="tag">Ingeniería</span><span class="tag">Derecho</span><span class="tag">Cs. Sociales</span></div>
+        <p class="card-desc">La UC3M es una de las universidades públicas más jóvenes y de mayor proyección de España, con una reputación excepcional en Economía, Derecho, Ingeniería y Ciencias Sociales. Sus programas de Economía Cuantitativa, Doble Grado en Derecho y ADE, e Ingeniería de Sistemas de Comunicación son comparables en rigor y reconocimiento a los de instituciones privadas de élite europeas. Con tres campus en el área metropolitana de Madrid, más del 30% de sus estudiantes son internacionales, lo que la convierte en una de las universidades más diversas de España. Ofrece numerosos programas de doble titulación con universidades de EE.UU., Reino Unido y América Latina, y tiene una tasa de inserción laboral que supera el 95% al año de graduación.</p>
+        <div class="card-tags"><span class="tag">Economía</span><span class="tag">Ingeniería</span><span class="tag">Derecho</span><span class="tag">Cs. Sociales</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.uc3m.es" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -579,28 +509,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- ALEMANIA -->
+<!--Alemania-->
 <section class="country-section" data-country="alemania">
   <div class="country-heading"><span class="flag">🇩🇪</span><h3>Alemania</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/TU_Muenchen_Hauptgebaeude_aussen.jpg/1200px-TU_Muenchen_Hauptgebaeude_aussen.jpg" alt="TUM" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Múnich, Baviera</span>
-        <div class="card-image-title">Technical University of Munich (TUM)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/TU_Muenchen_Hauptgebaeude_aussen.jpg/1200px-TU_Muenchen_Hauptgebaeude_aussen.jpg"
+            alt="TUM"
+            onerror="this.src='https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Múnich, Baviera</span>
+        <div class="card-img-title">Technical University of Munich (TUM)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1868</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 Alemania</span><span class="stat-label">Ingeniería</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">19 Nobel</span><span class="stat-label">Afiliados</span></div>
+          <div class="stat"><span class="stat-val">1868</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 Alemania</span><span class="stat-lbl">Ingeniería</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">19 Nobel</span><span class="stat-lbl">Afiliados</span></div>
         </div>
-        <p class="university-info">La TUM es la universidad técnica más reconocida de Alemania y una de las mejores de Europa en ingeniería, ciencias naturales y tecnología. Sus programas de Ingeniería Mecánica, Eléctrica, Informática y Ciencias de la Vida están conectados con gigantes industriales como BMW, Siemens y Airbus, con sede en Múnich. Alemania ofrece programas de maestría en inglés con matrículas significativamente más bajas que en EE.UU. o Reino Unido, lo que la convierte en una opción de alto valor para becados del MESCyT.</p>
-        <div class="tags"><span class="tag">Ing. Mecánica</span><span class="tag">Informática</span><span class="tag">Biotecnología</span><span class="tag">Física</span></div>
+        <p class="card-desc">La TUM es la universidad técnica más reconocida de Alemania y una de las cinco mejores de Europa en ingeniería, ciencias naturales y tecnología. Sus programas de Ingeniería Mecánica, Eléctrica, Informática, Ciencias de la Vida e Ingeniería Aeroespacial están directamente conectados con gigantes industriales como BMW, Siemens, MAN y Airbus, que tienen sus sedes centrales en Múnich. Con 19 premios Nobel afiliados, la TUM es también un centro de investigación en inteligencia artificial, robótica y biotecnología. Una ventaja fundamental para becados latinoamericanos: Alemania ofrece programas de maestría en inglés con matrículas cercanas a cero en las universidades públicas (€300–700 por semestre), lo que hace que una beca MESCyT pueda cubrir con holgura la totalidad de los gastos de vida.</p>
+        <div class="card-tags"><span class="tag">Ing. Mecánica</span><span class="tag">Informática</span><span class="tag">Robótica</span><span class="tag">Biotecnología</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.tum.de" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -610,21 +542,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWTH_Aachen_Hauptgebaeude.jpg/1200px-RWTH_Aachen_Hauptgebaeude.jpg" alt="RWTH" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Aachen, Renania del Norte</span>
-        <div class="card-image-title">RWTH Aachen University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWTH_Aachen_Hauptgebaeude.jpg/1200px-RWTH_Aachen_Hauptgebaeude.jpg"
+            alt="RWTH"
+            onerror="this.src='https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Aachen, Renania del Norte</span>
+        <div class="card-img-title">RWTH Aachen University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1870</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">45K+</span><span class="stat-label">Estudiantes</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">30%</span><span class="stat-label">Internacionales</span></div>
+          <div class="stat"><span class="stat-val">1870</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">45K+</span><span class="stat-lbl">Estudiantes</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">150+</span><span class="stat-lbl">Institutos I+D</span></div>
         </div>
-        <p class="university-info">RWTH Aachen es la universidad técnica más grande de Alemania y figura entre las mejores del mundo en Ingeniería Mecánica, Automotriz y de Manufactura. Su ubicación en el corazón industrial de Europa y su cercanía a Bélgica y Países Bajos la convierten en un hub de movilidad académica. Tiene más de 150 institutos de investigación con colaboraciones directas con Volkswagen, Ford, Thyssen-Krupp y docenas de empresas industriales. Ofrece numerosos programas de maestría completamente en inglés.</p>
-        <div class="tags"><span class="tag">Ing. Automotriz</span><span class="tag">Manufactura</span><span class="tag">Ing. Mecánica</span><span class="tag">Materiales</span></div>
+        <p class="card-desc">RWTH Aachen es la universidad técnica más grande de Alemania —y una de las mayores de Europa— con más de 45,000 estudiantes y 150 institutos de investigación. Figura entre las mejores del mundo en Ingeniería Mecánica, Automotriz, de Manufactura y Materiales. Su ubicación estratégica en la esquina trilingüe donde convergen Alemania, Bélgica y Países Bajos la convierte en un hub de movilidad académica y profesional europeo. Tiene colaboraciones directas con Volkswagen, Ford, Thyssen-Krupp y decenas de empresas de la industria pesada. El 30% de sus estudiantes son internacionales, lo que crea un ambiente cosmopolita inusual en el interior de Alemania. Ofrece más de 40 programas de maestría completamente en inglés.</p>
+        <div class="card-tags"><span class="tag">Ing. Automotriz</span><span class="tag">Manufactura</span><span class="tag">Materiales</span><span class="tag">Mecatrónica</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.rwth-aachen.de" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -634,21 +568,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Heidelberg_-_Alte_Universit%C3%A4t.jpg/1200px-Heidelberg_-_Alte_Universit%C3%A4t.jpg" alt="Heidelberg" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Heidelberg, Baden-Württemberg</span>
-        <div class="card-image-title">Heidelberg University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Heidelberg_-_Alte_Universit%C3%A4t.jpg/1200px-Heidelberg_-_Alte_Universit%C3%A4t.jpg"
+            alt="Heidelberg"
+            onerror="this.src='https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Heidelberg</span>
+        <div class="card-img-title">Heidelberg University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1386</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">+600 años</span><span class="stat-label">Ininterrumpidos</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">58 Nobel</span><span class="stat-label">Afiliados</span></div>
+          <div class="stat"><span class="stat-val">1386</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">+638 años</span><span class="stat-lbl">Ininterrumpidos</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">58 Nobel</span><span class="stat-lbl">Afiliados</span></div>
         </div>
-        <p class="university-info">Heidelberg es la universidad más antigua de Alemania y una de las más prestigiosas de Europa, con más de seis siglos de historia ininterrumpida. Reconocida mundialmente en Medicina, Ciencias Naturales, Filosofía y Derecho. La ciudad de Heidelberg, a orillas del río Neckar, está considerada una de las más bellas de Alemania y ofrece un ambiente universitario tradicional de excepción. Con 58 premios Nobel afiliados, su tradición investigadora es extraordinaria para quienes buscan estudios de posgrado en ciencias básicas y biomedina.</p>
-        <div class="tags"><span class="tag">Medicina</span><span class="tag">Cs. Naturales</span><span class="tag">Filosofía</span><span class="tag">Derecho</span></div>
+        <p class="card-desc">Heidelberg es la universidad más antigua de Alemania, con más de 638 años de historia académica ininterrumpida desde su fundación en 1386. Su escuela médica es una de las más respetadas de Europa, siendo centro de referencia en oncología, neurociencias y medicina traslacional a nivel mundial. Con 58 premios Nobel afiliados, su tradición investigadora en ciencias básicas —Física, Química, Biología Molecular y Astrofísica— es excepcional. La ciudad de Heidelberg, a orillas del río Neckar y flanqueada por bosques y un castillo medieval, es considerada una de las más hermosas de Europa y ofrece un ambiente universitario clásico e inigualable. Ideal para quienes buscan posgrados en ciencias biomédicas y naturales de alto nivel.</p>
+        <div class="card-tags"><span class="tag">Medicina</span><span class="tag">Biología Molecular</span><span class="tag">Cs. Naturales</span><span class="tag">Filosofía</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.uni-heidelberg.de" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -658,21 +594,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Freiburg-Kollegiengebaeude_I.jpg/1200px-Freiburg-Kollegiengebaeude_I.jpg" alt="Freiburg" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Friburgo de Brisgovia</span>
-        <div class="card-image-title">University of Freiburg</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Freiburg-Kollegiengebaeude_I.jpg/1200px-Freiburg-Kollegiengebaeude_I.jpg"
+            alt="Freiburg"
+            onerror="this.src='https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Friburgo de Brisgovia</span>
+        <div class="card-img-title">University of Freiburg</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1457</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Capital solar</span><span class="stat-label">Europa</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">25K</span><span class="stat-label">Estudiantes</span></div>
+          <div class="stat"><span class="stat-val">1457</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Capital solar</span><span class="stat-lbl">Europa</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">25K</span><span class="stat-lbl">Estudiantes</span></div>
         </div>
-        <p class="university-info">La Universidad de Friburgo es una de las más antiguas y prestigiosas de Alemania, ubicada en la llamada "capital solar" de Europa por su compromiso con la sostenibilidad energética. Referente en Ciencias Ambientales, Energías Renovables, Biología y Ciencias Forestales. Friburgo, en la frontera trilingüe con Francia y Suiza, ofrece una experiencia multicultural única. La universidad tiene acuerdos Erasmus con decenas de instituciones europeas y es especialmente ideal para investigación en cambio climático, ecología y transición energética.</p>
-        <div class="tags"><span class="tag">Medio Ambiente</span><span class="tag">Biología</span><span class="tag">Energías Renovables</span><span class="tag">Medicina</span></div>
+        <p class="card-desc">La Universidad de Friburgo es una de las más antiguas y prestigiosas de Alemania, ubicada en la llamada "capital solar" de Europa —Friburgo genera más energía solar por habitante que cualquier otra ciudad del continente— y esto refleja su vocación pionera en sostenibilidad. Es referente internacional en Ciencias Ambientales, Ecología, Energías Renovables, Biología Forestal y Geociencias. La ciudad se encuentra en la frontera trilingüe (alemán, francés, alsaciano) con Francia y Suiza, creando un entorno multicultural único. El campus histórico integra arquitectura medieval con laboratorios modernos. La universidad es miembro de la red Eucor junto a las universidades de Basel, Estrasburgo y Karslruhe, permitiendo movilidad académica entre tres países.</p>
+        <div class="card-tags"><span class="tag">Medio Ambiente</span><span class="tag">Biología</span><span class="tag">Energías Renovables</span><span class="tag">Geociencias</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.uni-freiburg.de" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -683,28 +621,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- JAPÓN -->
+<!--Japón-->
 <section class="country-section" data-country="japon">
   <div class="country-heading"><span class="flag">🇯🇵</span><h3>Japón</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Tokyo_University_Yasuda_Auditorium_3.jpg/1200px-Tokyo_University_Yasuda_Auditorium_3.jpg" alt="UTokyo" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Tokio</span>
-        <div class="card-image-title">The University of Tokyo</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Tokyo_University_Yasuda_Auditorium_3.jpg/1200px-Tokyo_University_Yasuda_Auditorium_3.jpg"
+            alt="UTokyo"
+            onerror="this.src='https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Tokio</span>
+        <div class="card-img-title">The University of Tokyo</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1877</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 Asia</span><span class="stat-label">Ranking regional</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 30</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1877</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 Asia</span><span class="stat-lbl">Ranking regional</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 30</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">La Universidad de Tokio, conocida como "Todai", es la institución académica más prestigiosa de Asia. Es la cantera de la élite científica, política y empresarial japonesa. Ofrece numerosos programas de posgrado en inglés, especialmente en Ingeniería, Ciencias Naturales, Negocios y Política Internacional. Estudiar en Japón con el apoyo de becas del gobierno japonés (MEXT), complementadas por las del MESCyT, puede resultar en una experiencia completamente financiada, incluyendo matrícula, estipendio mensual y seguro de salud.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Ciencias</span><span class="tag">Política Int.</span><span class="tag">Negocios</span></div>
+        <p class="card-desc">La Universidad de Tokio —conocida en Japón como "Todai"— es la institución académica más prestigiosa de Asia y figura consistentemente entre las 30 mejores del mundo. Es la principal forjadora de la élite científica, política y empresarial japonesa: la gran mayoría de los primeros ministros del Japón moderno son egresados de esta institución. Ofrece numerosos programas de posgrado íntegramente en inglés, especialmente en Ingeniería, Física, Ciencias Naturales, Política Internacional y Negocios. Estudiar en Japón con apoyo de becas MEXT del gobierno japonés —complementadas por las del MESCyT— puede resultar en una experiencia completamente financiada que incluye matrícula, alojamiento, estipendio mensual, billete aéreo y seguro de salud. Una oportunidad transformadora para el estudiante dominicano.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Física</span><span class="tag">Política Int.</span><span class="tag">Negocios</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.u-tokyo.ac.jp" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -714,21 +654,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kyoto_University_Clock_Tower.jpg/1200px-Kyoto_University_Clock_Tower.jpg" alt="Kyoto" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Kioto</span>
-        <div class="card-image-title">Kyoto University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kyoto_University_Clock_Tower.jpg/1200px-Kyoto_University_Clock_Tower.jpg"
+            alt="Kyoto"
+            onerror="this.src='https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Kioto</span>
+        <div class="card-img-title">Kyoto University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1897</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">19 Nobel</span><span class="stat-label">Japoneses</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#2 Japón</span><span class="stat-label">Ranking nacional</span></div>
+          <div class="stat"><span class="stat-val">1897</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">19 Nobel</span><span class="stat-lbl">Japoneses</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#2 Japón</span><span class="stat-lbl">Ranking nacional</span></div>
         </div>
-        <p class="university-info">La Universidad de Kioto es la segunda mejor de Japón y goza de reputación internacional extraordinaria en investigación básica. Ha producido 19 laureados Nobel japoneses —más que cualquier otra institución del país—. Su enfoque en libertad académica y pensamiento independiente ha generado descubrimientos revolucionarios en Física, Química, Medicina y Humanidades. Kioto, Patrimonio Cultural de la Humanidad por la UNESCO, ofrece además una inmersión cultural japonesa única, entre templos milenarios y modernidad científica.</p>
-        <div class="tags"><span class="tag">Física</span><span class="tag">Química</span><span class="tag">Medicina</span><span class="tag">Humanidades</span></div>
+        <p class="card-desc">La Universidad de Kioto es la segunda mejor de Japón y goza de una reputación internacional extraordinaria en investigación básica de frontera. Ha producido 19 laureados Nobel japoneses —más que cualquier otra institución del país—, incluyendo a Shinya Yamanaka, ganador en Medicina 2012 por su trabajo con células madre. Su filosofía institucional de libertad académica y pensamiento independiente ha generado descubrimientos revolucionarios en Física de Partículas, Química Orgánica, Medicina y Primatología. Kioto, Patrimonio Cultural de la Humanidad por la UNESCO con más de 1,600 templos y santuarios, ofrece una inmersión en la cultura japonesa tradicional sin parangón, mientras el campus proporciona acceso de clase mundial a la investigación más avanzada de Asia.</p>
+        <div class="card-tags"><span class="tag">Física</span><span class="tag">Química</span><span class="tag">Medicina</span><span class="tag">Humanidades</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.kyoto-u.ac.jp" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -738,21 +680,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Tokyo_Institute_of_Technology_Main_Building.JPG/1200px-Tokyo_Institute_of_Technology_Main_Building.JPG" alt="Tokyo Tech" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Tokio</span>
-        <div class="card-image-title">Tokyo Institute of Technology (Tokyo Tech)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Tokyo_Institute_of_Technology_Main_Building.JPG/1200px-Tokyo_Institute_of_Technology_Main_Building.JPG"
+            alt="Tokyo Tech"
+            onerror="this.src='https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Tokio</span>
+        <div class="card-img-title">Tokyo Institute of Technology (Tokyo Tech)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1881</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 60</span><span class="stat-label">QS Mundial</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Especializado</span><span class="stat-label">Ciencia &amp; Tecnología</span></div>
+          <div class="stat"><span class="stat-val">1881</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 60</span><span class="stat-lbl">QS Mundial</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">STEM</span><span class="stat-lbl">Especializado</span></div>
         </div>
-        <p class="university-info">Tokyo Tech es la universidad técnica de mayor prestigio de Japón, especializada exclusivamente en ciencias naturales e ingeniería. Sus programas de Electrónica, Robótica, Ciencias de Materiales e Inteligencia Artificial están entre los mejores de Asia. A diferencia de las universidades generalistas, Tokyo Tech concentra todos sus recursos en disciplinas técnicas, generando un ambiente de altísima especialización e innovación. Ofrece programas completos en inglés para estudiantes internacionales de posgrado, con acceso directo a la industria tecnológica japonesa.</p>
-        <div class="tags"><span class="tag">Electrónica</span><span class="tag">Robótica</span><span class="tag">Materiales</span><span class="tag">IA</span></div>
+        <p class="card-desc">Tokyo Tech es la universidad técnica de mayor prestigio de Japón, especializada exclusivamente en ciencias naturales e ingeniería. A diferencia de universidades generalistas, concentra todos sus recursos humanos, financieros y de infraestructura en disciplinas técnicas, lo que genera un ambiente de altísima especialización e innovación con pocos paralelos en el mundo. Sus programas de Electrónica, Robótica, Ciencias de Materiales, Ingeniería Nuclear e Inteligencia Artificial están entre los mejores de Asia. En 2024 se fusionó con la Science Tokyo convirtiéndose en una institución aún más potente. Ofrece programas completos en inglés para estudiantes internacionales de posgrado, con oportunidades de financiamiento directo a través del JSPS (Japan Society for the Promotion of Science).</p>
+        <div class="card-tags"><span class="tag">Electrónica</span><span class="tag">Robótica</span><span class="tag">Materiales</span><span class="tag">Ing. Nuclear</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.titech.ac.jp" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -762,21 +706,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Osaka_University_Toyonaka_campus.jpg/1200px-Osaka_University_Toyonaka_campus.jpg" alt="Osaka U" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Osaka</span>
-        <div class="card-image-title">Osaka University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Osaka_University_Toyonaka_campus.jpg/1200px-Osaka_University_Toyonaka_campus.jpg"
+            alt="Osaka"
+            onerror="this.src='https://images.unsplash.com/photo-1444628838545-ac4016a5418a?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Osaka</span>
+        <div class="card-img-title">Osaka University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1931</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#3 Japón</span><span class="stat-label">Ranking nacional</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Región Kansai</span><span class="stat-label">Centro industrial</span></div>
+          <div class="stat"><span class="stat-val">1931</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#3 Japón</span><span class="stat-lbl">Ranking nacional</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Kansai</span><span class="stat-lbl">Centro industrial</span></div>
         </div>
-        <p class="university-info">La Universidad de Osaka es la tercera mejor de Japón y una de las más completas del país, con fortalezas en Medicina, Ciencias de la Vida, Física e Informática. Su ubicación en Osaka, la capital económica de la región Kansai, le da acceso directo a la industria farmacéutica, electrónica y de manufactura avanzada. El campus de Suita alberga instalaciones de investigación biomédica de clase mundial. Osaka es también famosa por su gastronomía y su ambiente más relajado y accesible que Tokio, ideal para adaptarse a la vida japonesa.</p>
-        <div class="tags"><span class="tag">Medicina</span><span class="tag">Cs. de la Vida</span><span class="tag">Física</span><span class="tag">Informática</span></div>
+        <p class="card-desc">La Universidad de Osaka es la tercera mejor de Japón y una de las más completas del país, con fortalezas notables en Medicina, Ciencias de la Vida, Física de Partículas e Informática. Su campus de Suita alberga el RCNP (Research Center for Nuclear Physics), uno de los laboratorios de física nuclear más avanzados de Asia. Ubicada en la región Kansai —capital económica de Japón con acceso directo a la industria farmacéutica, electrónica y de manufactura avanzada de compañías como Panasonic, Sharp y Daikin—, la universidad ofrece excepcionales oportunidades de prácticas e investigación colaborativa con el sector privado. Osaka, con fama mundial por su gastronomía y ambiente más relajado que Tokio, es ideal para adaptarse a la vida japonesa.</p>
+        <div class="card-tags"><span class="tag">Medicina</span><span class="tag">Física</span><span class="tag">Cs. de la Vida</span><span class="tag">Informática</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.osaka-u.ac.jp" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -787,28 +733,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- COLOMBIA -->
+<!--Colombia-->
 <section class="country-section" data-country="colombia">
   <div class="country-heading"><span class="flag">🇨🇴</span><h3>Colombia</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Uniandes_Bogota_Colombia.jpg/1200px-Uniandes_Bogota_Colombia.jpg" alt="Los Andes" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Bogotá</span>
-        <div class="card-image-title">Universidad de los Andes</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Uniandes_Bogota_Colombia.jpg/1200px-Uniandes_Bogota_Colombia.jpg"
+            alt="Los Andes"
+            onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Bogotá</span>
+        <div class="card-img-title">Universidad de los Andes</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1948</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 privada</span><span class="stat-label">Colombia</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 5</span><span class="stat-label">América Latina</span></div>
+          <div class="stat"><span class="stat-val">1948</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 privada</span><span class="stat-lbl">Colombia</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 5</span><span class="stat-lbl">América Latina</span></div>
         </div>
-        <p class="university-info">Los Andes es la universidad privada más reconocida de Colombia y figura entre las cinco mejores de América Latina. Su campus en el centro histórico de Bogotá, integrado en los cerros orientales, es uno de los más hermosos del continente. Excelente en Ingeniería, Economía, Administración, Derecho y Artes. Tiene programas de doble titulación con instituciones europeas y norteamericanas, y una activa comunidad académica que la posiciona como centro de pensamiento y generación de política pública regional.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Economía</span><span class="tag">Derecho</span><span class="tag">Artes</span></div>
+        <p class="card-desc">Los Andes es la universidad privada más reconocida de Colombia y figura entre las cinco mejores de América Latina según QS, Times Higher Education y el ranking ARWU. Su campus en el centro histórico de Bogotá, encajado entre los cerros orientales de los Andes, es considerado uno de los más bellos del continente. Excelente en Ingeniería, Economía, Administración, Derecho, Arquitectura y Artes. Tiene programas de doble titulación con instituciones de primer nivel en EE.UU., Europa y América Latina. Su Centro Interdisciplinario de Estudios sobre Desarrollo (CIDER) es uno de los centros de pensamiento más influyentes en política pública latinoamericana. Un complemento ideal para un becado dominicano que busca experiencia en el contexto latinoamericano sin la barrera idiomática.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Economía</span><span class="tag">Derecho</span><span class="tag">Arquitectura</span><span class="tag">Artes</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://uniandes.edu.co" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -818,21 +766,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Unal_Bogota_Ciudad_Universitaria.jpg/1200px-Unal_Bogota_Ciudad_Universitaria.jpg" alt="UNAL" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Bogotá / Medellín / Manizales</span>
-        <div class="card-image-title">Universidad Nacional de Colombia</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Unal_Bogota_Ciudad_Universitaria.jpg/1200px-Unal_Bogota_Ciudad_Universitaria.jpg"
+            alt="UNAL"
+            onerror="this.src='https://images.unsplash.com/photo-1497366754035-f200581dd101?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Bogotá / Medellín / Manizales</span>
+        <div class="card-img-title">Universidad Nacional de Colombia</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1867</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 pública</span><span class="stat-label">Colombia</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">9 sedes</span><span class="stat-label">En todo el país</span></div>
+          <div class="stat"><span class="stat-val">1867</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 pública</span><span class="stat-lbl">Colombia</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">9 sedes</span><span class="stat-lbl">En todo el país</span></div>
         </div>
-        <p class="university-info">La Universidad Nacional es la institución pública más importante de Colombia, con presencia en nueve ciudades del país. Con más de 150 años de historia, ha formado a gran parte de los científicos, ingenieros y profesionales que han construido la Colombia moderna. Ofrece programas de posgrado en casi todas las áreas del conocimiento, con investigación activa en Agronomía, Ciencias Exactas, Medicina y Ciencias Sociales. Su costo reducido y calidad académica la hacen especialmente atractiva para becas latinoamericanas como las del MESCyT.</p>
-        <div class="tags"><span class="tag">Agronomía</span><span class="tag">Cs. Exactas</span><span class="tag">Medicina</span><span class="tag">Ingeniería</span></div>
+        <p class="card-desc">La Universidad Nacional es la institución pública más importante de Colombia y tiene presencia en nueve ciudades del país. Con más de 157 años de historia, ha formado a la gran mayoría de los científicos, ingenieros, médicos y líderes que han construido la Colombia contemporánea. Ofrece programas de posgrado en prácticamente todas las áreas del conocimiento —más de 400 programas de maestría y doctorado— con investigación activa y financiada en Agronomía, Ciencias Exactas, Medicina, Bioquímica, Ciencias Sociales y Artes. Su costo relativamente bajo para estudiantes latinoamericanos y su reconocida calidad académica la hacen especialmente atractiva para becados del MESCyT que buscan aprovechar al máximo el estipendio disponible en un entorno cultural familiar.</p>
+        <div class="card-tags"><span class="tag">Agronomía</span><span class="tag">Cs. Exactas</span><span class="tag">Medicina</span><span class="tag">Ingeniería</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://unal.edu.co" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -842,21 +792,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pontificia_Universidad_Javeriana_-_Campus_Central.jpg/1200px-Pontificia_Universidad_Javeriana_-_Campus_Central.jpg" alt="Javeriana" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Bogotá / Cali</span>
-        <div class="card-image-title">Pontificia Universidad Javeriana</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pontificia_Universidad_Javeriana_-_Campus_Central.jpg/1200px-Pontificia_Universidad_Javeriana_-_Campus_Central.jpg"
+            alt="Javeriana"
+            onerror="this.src='https://images.unsplash.com/photo-1527576539890-dfa815648363?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Bogotá / Cali</span>
+        <div class="card-img-title">Pontificia Universidad Javeriana</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1623</span><span class="stat-label">Fundación original</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Jesuita</span><span class="stat-label">Red mundial</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 3</span><span class="stat-label">Privadas Colombia</span></div>
+          <div class="stat"><span class="stat-val">1623</span><span class="stat-lbl">Fundación original</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Jesuita</span><span class="stat-lbl">Red mundial</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 3</span><span class="stat-lbl">Privadas Colombia</span></div>
         </div>
-        <p class="university-info">La Javeriana es una de las universidades más tradicionales de Colombia, con raíces jesuitas que se remontan al siglo XVII. Excelente en Ciencias de la Salud, Derecho, Psicología, Comunicación Social y Arquitectura. Su pertenencia a la red jesuita mundial facilita convenios con universidades como Georgetown, Boston College y la IBERO México. El campus bogotano, en la Candelaria, combina arquitectura colonial con modernas instalaciones médicas y laboratorios de investigación activa en ciencias sociales y salud pública.</p>
-        <div class="tags"><span class="tag">Salud</span><span class="tag">Derecho</span><span class="tag">Psicología</span><span class="tag">Comunicación</span></div>
+        <p class="card-desc">La Javeriana es una de las universidades más tradicionales de Colombia, con raíces jesuitas que se remontan al siglo XVII, y pertenece a la AUSJAL (Asociación de Universidades Jesuitas de América Latina), que incluye a Georgetown, Boston College y la Iberoamericana de México. Excelente en Ciencias de la Salud, Derecho, Psicología, Comunicación Social y Arquitectura, su hospital universitario San Ignacio es de los más reconocidos de Colombia. El campus bogotano combina arquitectura colonial con modernas instalaciones médicas, laboratorios y centros culturales. La membresía en la red jesuita facilita programas de intercambio y doble titulación con más de 200 universidades en los cinco continentes, una ventaja significativa para becados dominicanos que buscan experiencias de movilidad adicional durante sus estudios.</p>
+        <div class="card-tags"><span class="tag">Salud</span><span class="tag">Derecho</span><span class="tag">Psicología</span><span class="tag">Comunicación</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.javeriana.edu.co" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -866,21 +818,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bloque_16_UdeA.jpg/1200px-Bloque_16_UdeA.jpg" alt="UdeA" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Medellín</span>
-        <div class="card-image-title">Universidad de Antioquia</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bloque_16_UdeA.jpg/1200px-Bloque_16_UdeA.jpg"
+            alt="UdeA"
+            onerror="this.src='https://images.unsplash.com/photo-1444628838545-ac4016a5418a?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Medellín</span>
+        <div class="card-img-title">Universidad de Antioquia</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1803</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Medellín</span><span class="stat-label">Ciudad innovadora</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 10</span><span class="stat-label">América Latina</span></div>
+          <div class="stat"><span class="stat-val">1803</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Medellín</span><span class="stat-lbl">Ciudad innovadora</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 10</span><span class="stat-lbl">América Latina</span></div>
         </div>
-        <p class="university-info">La Universidad de Antioquia es la segunda universidad pública más reconocida de Colombia, ubicada en Medellín, ciudad transformada en referente mundial de innovación urbana. Reconocida en Farmacia, Química, Biología, Ciencias Sociales y Medicina, tiene uno de los centros de investigación biomédica más activos de Latinoamérica. Su entorno en el "Valle del Software" colombiano la conecta con un ecosistema tecnológico en plena expansión. La sede Ciudad Universitaria en El Volador es un pulmón verde dentro de la ciudad.</p>
-        <div class="tags"><span class="tag">Farmacia</span><span class="tag">Química</span><span class="tag">Biología</span><span class="tag">Medicina</span></div>
+        <p class="card-desc">La Universidad de Antioquia es la segunda universidad pública más reconocida de Colombia y está ubicada en Medellín —la ciudad que fue transformada de manera radical en la última década para convertirse en referente mundial de innovación urbana, social y tecnológica—. Reconocida en Farmacia, Química, Biología, Ciencias Sociales y Medicina, tiene uno de los centros de investigación biomédica más activos de Latinoamérica, el SIU (Sede de Investigación Universitaria). Su entorno en el Área Metropolitana del Valle de Aburrá, hogar de empresas tecnológicas como Rappi, PSL y la Universidad EAFIT, la conecta con un ecosistema de emprendimiento e innovación en plena expansión regional. La sede Ciudad Universitaria en El Volador, con sus 41 hectáreas de bosque urbano dentro de la ciudad, es un símbolo de vida universitaria activa y comprometida.</p>
+        <div class="card-tags"><span class="tag">Farmacia</span><span class="tag">Química</span><span class="tag">Biología</span><span class="tag">Biomedicina</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.udea.edu.co" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -891,28 +845,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- CHINA -->
+<!--Chino-->
 <section class="country-section" data-country="china">
   <div class="country-heading"><span class="flag">🇨🇳</span><h3>China</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tsinghua_University_Main_Building.jpg/1200px-Tsinghua_University_Main_Building.jpg" alt="Tsinghua" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Pekín</span>
-        <div class="card-image-title">Tsinghua University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tsinghua_University_Main_Building.jpg/1200px-Tsinghua_University_Main_Building.jpg"
+            alt="Tsinghua"
+            onerror="this.src='https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Pekín</span>
+        <div class="card-img-title">Tsinghua University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1911</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 China</span><span class="stat-label">Ingeniería</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 20</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1911</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 China</span><span class="stat-lbl">Ingeniería</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 20</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">Tsinghua es la universidad más influyente de China en ciencias e ingeniería y figura entre las 20 mejores del mundo. Conocida como "el MIT de China", ha formado a la mayoría de los líderes del sector tecnológico chino. Sus programas en Ingeniería Eléctrica, Computación, Inteligencia Artificial y Ciencias de Materiales son de primer nivel mundial. China ofrece numerosas becas de gobierno (CSC) que combinadas con las del MESCyT pueden financiar completamente estudios de maestría o doctorado con estipendio mensual incluido.</p>
-        <div class="tags"><span class="tag">Ing. Eléctrica</span><span class="tag">Computación</span><span class="tag">IA</span><span class="tag">Materiales</span></div>
+        <p class="card-desc">Tsinghua es la universidad más influyente de China en ciencias e ingeniería y figura entre las 20 mejores del mundo en el QS Rankings. Conocida en Asia como "el MIT de China", ha formado a la gran mayoría de los presidentes de las empresas tecnológicas más grandes del país, incluyendo Baidu, Lenovo y Xiaomi. Sus programas en Ingeniería Eléctrica, Ciencias de la Computación, Inteligencia Artificial, Ciencias de Materiales y Energía Nuclear son de primer nivel mundial. Una ventaja estratégica para becados: China ofrece numerosas becas de gobierno (CSC - China Scholarship Council) que combinadas con las del MESCyT pueden financiar completamente estudios de maestría o doctorado en Tsinghua, incluyendo alojamiento, estipendio mensual, seguro médico y matrícula gratuita.</p>
+        <div class="card-tags"><span class="tag">Ing. Eléctrica</span><span class="tag">Computación</span><span class="tag">IA</span><span class="tag">Materiales</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.tsinghua.edu.cn" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -922,21 +878,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/West_gate_of_Peking_University.jpg/1200px-West_gate_of_Peking_University.jpg" alt="PKU" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Pekín</span>
-        <div class="card-image-title">Peking University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/West_gate_of_Peking_University.jpg/1200px-West_gate_of_Peking_University.jpg"
+            alt="PKU"
+            onerror="this.src='https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Pekín</span>
+        <div class="card-img-title">Peking University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1898</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 Humanidades</span><span class="stat-label">China</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 25</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1898</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 Humanidades</span><span class="stat-lbl">China</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 25</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">Peking University (PKU) es la universidad más antigua y emblemática de la China moderna, equiparable en reputación humanística a lo que Tsinghua representa en ingeniería. Excelente en Ciencias Naturales, Medicina, Economía, Filosofía y Ciencias Sociales. Su campus en el antiguo jardín imperial de Yan Garden es un patrimonio cultural nacional. PKU tiene programas de maestría en inglés en diversas áreas y ofrece becas del gobierno chino para estudiantes internacionales latinoamericanos, incluyendo alojamiento y cobertura médica.</p>
-        <div class="tags"><span class="tag">Cs. Naturales</span><span class="tag">Medicina</span><span class="tag">Economía</span><span class="tag">Filosofía</span></div>
+        <p class="card-desc">Peking University (PKU) es la universidad más antigua y emblemática de la China moderna, equiparable en reputación humanística y científica a lo que Tsinghua representa en ingeniería. Excelente en Ciencias Naturales, Medicina, Economía, Derecho Internacional, Filosofía y Ciencias Sociales. Su campus en el antiguo jardín imperial de Yan Garden, en los suburbios históricos de Pekín, es un patrimonio cultural nacional con lagos, pagodas y jardines milenarios que contrastan con los modernos laboratorios de investigación. PKU tiene decenas de programas de maestría impartidos completamente en inglés y ofrece las mismas becas CSC del gobierno chino disponibles para latinoamericanos que pueden combinarse con el apoyo del MESCyT para financiamiento integral.</p>
+        <div class="card-tags"><span class="tag">Cs. Naturales</span><span class="tag">Medicina</span><span class="tag">Economía</span><span class="tag">Filosofía</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.pku.edu.cn" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -946,21 +904,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Shanghai_Jiao_Tong_University_Haoran_Building.jpg/1200px-Shanghai_Jiao_Tong_University_Haoran_Building.jpg" alt="SJTU" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Shanghái</span>
-        <div class="card-image-title">Shanghai Jiao Tong University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Shanghai_Jiao_Tong_University_Haoran_Building.jpg/1200px-Shanghai_Jiao_Tong_University_Haoran_Building.jpg"
+            alt="SJTU"
+            onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Shanghái</span>
+        <div class="card-img-title">Shanghai Jiao Tong University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1896</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Shanghái</span><span class="stat-label">Capital financiera</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 50</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1896</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Shanghái</span><span class="stat-lbl">Capital financiera</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 50</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">La SJTU está en Shanghái, el mayor centro financiero y tecnológico de China. Reconocida en Ingeniería Naval y Oceánica, Mecánica, Medicina y Finanzas. Es la creadora del Academic Ranking of World Universities (ARWU), el ranking de universidades más influyente del mundo, lo que da cuenta de su compromiso con la calidad académica global. Su escuela de negocios Antai es la mejor de China en negocios internacionales, con vínculos directos con Wall Street y los mercados financieros globales.</p>
-        <div class="tags"><span class="tag">Ing. Naval</span><span class="tag">Mecánica</span><span class="tag">Medicina</span><span class="tag">Finanzas</span></div>
+        <p class="card-desc">La SJTU está ubicada en Shanghái, el mayor centro financiero, comercial y tecnológico de China, lo que le confiere un posicionamiento laboral y empresarial excepcional para sus egresados. Reconocida en Ingeniería Naval y Oceánica —una de las mejores del mundo en esta especialidad—, Mecánica, Medicina y Finanzas Internacionales. Su escuela de negocios Antai College es la mejor de China en negocios internacionales. Un dato relevante: fue precisamente la SJTU quien creó el Academic Ranking of World Universities (ARWU) en 2003, el ranking de universidades más respetado del mundo académico y científico, lo que refleja su vocación por la excelencia medible y comparable. Sus instalaciones en el campus de Minhang están entre las más modernas de Asia.</p>
+        <div class="card-tags"><span class="tag">Ing. Naval</span><span class="tag">Mecánica</span><span class="tag">Finanzas Int.</span><span class="tag">Medicina</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.sjtu.edu.cn" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -970,21 +930,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Zhejiang_University_Zijingang_Campus.jpg/1200px-Zhejiang_University_Zijingang_Campus.jpg" alt="Zhejiang" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Hangzhou, Zhejiang</span>
-        <div class="card-image-title">Zhejiang University</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Zhejiang_University_Zijingang_Campus.jpg/1200px-Zhejiang_University_Zijingang_Campus.jpg"
+            alt="Zhejiang"
+            onerror="this.src='https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Hangzhou, Zhejiang</span>
+        <div class="card-img-title">Zhejiang University</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1897</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Hangzhou</span><span class="stat-label">Cuna de Alibaba</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Top 50</span><span class="stat-label">QS Mundial</span></div>
+          <div class="stat"><span class="stat-val">1897</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Hangzhou</span><span class="stat-lbl">Cuna de Alibaba</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Top 50</span><span class="stat-lbl">QS Mundial</span></div>
         </div>
-        <p class="university-info">Zhejiang University está en Hangzhou, ciudad donde nacieron Alibaba y docenas de gigantes tecnológicos chinos, convirtiendo a esta universidad en el epicentro del emprendimiento digital de Asia. Reconocida en Ingeniería de Software, Ciencias Agrícolas, Farmacia y Diseño Industrial. Sus instalaciones en el campus de Zijingang son de las más modernas de China, con laboratorios de robótica, biotecnología y computación cuántica. Es la institución china con mayor inversión en investigación de energías renovables e impresión 3D avanzada.</p>
-        <div class="tags"><span class="tag">Software</span><span class="tag">Biotecnología</span><span class="tag">Farmacia</span><span class="tag">Diseño Industrial</span></div>
+        <p class="card-desc">Zhejiang University está en Hangzhou, la ciudad donde nació Alibaba y docenas de los gigantes tecnológicos y de comercio electrónico más grandes de China, convirtiendo a esta institución en el epicentro del emprendimiento digital asiático. Reconocida en Ingeniería de Software, Ciencias Agrícolas, Farmacia, Diseño Industrial y Biotecnología, tiene uno de los programas de transferencia tecnológica e innovación más activos de China. Su campus de Zijingang —uno de los más modernos del país— cuenta con laboratorios de robótica colaborativa, biotecnología sintética y computación cuántica. El año 2025 fue su mejor posición histórica en el QS, consolidando su ascenso como una de las instituciones de más rápido crecimiento en reputación académica global.</p>
+        <div class="card-tags"><span class="tag">Software</span><span class="tag">Biotecnología</span><span class="tag">Diseño Industrial</span><span class="tag">Farmacia</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.zju.edu.cn" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -995,28 +957,30 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- MÉXICO -->
+<!--Mexico-->
 <section class="country-section" data-country="mexico">
   <div class="country-heading"><span class="flag">🇲🇽</span><h3>México</h3></div>
   <div class="universities-grid">
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Edificio_de_Rectoría_-_Campus_Monterrey.jpg/1200px-Edificio_de_Rectoría_-_Campus_Monterrey.jpg" alt="Tec" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Monterrey / Todo México</span>
-        <div class="card-image-title">Tec de Monterrey</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Edificio_de_Rector%C3%ADa_-_Campus_Monterrey.jpg/1200px-Edificio_de_Rector%C3%ADa_-_Campus_Monterrey.jpg"
+            alt="Tec"
+            onerror="this.src='https://images.unsplash.com/photo-1465101162946-4377e57745c3?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Monterrey / Todo México</span>
+        <div class="card-img-title">Tec de Monterrey</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1943</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">26 campus</span><span class="stat-label">En México</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1 privada</span><span class="stat-label">México</span></div>
+          <div class="stat"><span class="stat-val">1943</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">26 campus</span><span class="stat-lbl">En México</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1 privada</span><span class="stat-lbl">México</span></div>
         </div>
-        <p class="university-info">El Tecnológico de Monterrey es la universidad privada más reconocida de México y la que aparece con mayor frecuencia en las convocatorias del MESCyT. Su red de 26 campus en todo el país y su enfoque en emprendimiento, innovación e ingeniería la convierten en la institución mexicana con mayor inserción en el mercado laboral internacional. Ofrece programas en inglés y español, dobles titulaciones con MIT, Purdue y universidades europeas, y una de las redes de egresados más activas y poderosas de América Latina.</p>
-        <div class="tags"><span class="tag">Ingeniería</span><span class="tag">Negocios</span><span class="tag">Emprendimiento</span><span class="tag">Tecnología</span></div>
+        <p class="card-desc">El Tecnológico de Monterrey es la universidad privada más reconocida de México, la institución latinoamericana con mayor presencia en rankings globales de empleabilidad y la que aparece con mayor frecuencia en las convocatorias internacionales del MESCyT. Su red de 26 campus en todo México y sus acuerdos de doble titulación con MIT, Purdue, Carnegie Mellon y más de 600 universidades en 57 países la convierten en la institución mexicana con mayor inserción en el mercado laboral internacional. Ofrece programas de maestría en inglés y español en áreas de Emprendimiento, Transformación Digital, Negocios Internacionales, Ingeniería y Políticas Públicas. Su ecosistema emprendedor ha generado startups que suman miles de millones en valoración, y es la universidad latinoamericana con mayor número de mentores empresariales activos.</p>
+        <div class="card-tags"><span class="tag">Ingeniería</span><span class="tag">Negocios</span><span class="tag">Emprendimiento</span><span class="tag">Transformación Digital</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.tec.mx" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -1026,21 +990,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Biblioteca_Central_UNAM.jpg/1200px-Biblioteca_Central_UNAM.jpg" alt="UNAM" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Ciudad de México</span>
-        <div class="card-image-title">Universidad Nacional Autónoma de México (UNAM)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Biblioteca_Central_UNAM.jpg/1200px-Biblioteca_Central_UNAM.jpg"
+            alt="UNAM"
+            onerror="this.src='https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Ciudad de México</span>
+        <div class="card-img-title">Universidad Nacional Autónoma de México (UNAM)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1551</span><span class="stat-label">Fundación original</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">UNESCO</span><span class="stat-label">Patrimonio Humanidad</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#1</span><span class="stat-label">Iberoamérica</span></div>
+          <div class="stat"><span class="stat-val">1551</span><span class="stat-lbl">Fundación original</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">UNESCO</span><span class="stat-lbl">Patrimonio Humanidad</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#1</span><span class="stat-lbl">Iberoamérica</span></div>
         </div>
-        <p class="university-info">La UNAM es la universidad más grande e influyente del mundo hispanohablante, clasificada entre las 100 mejores del mundo. Su Ciudad Universitaria en el sur de Ciudad de México es Patrimonio Cultural de la Humanidad por la UNESCO, con murales de Diego Rivera y Siqueiros en sus edificios. Es el principal centro de producción científica de América Latina, con más de 40,000 publicaciones anuales. Sus programas de posgrado en Ciencias, Humanidades, Ingeniería y Medicina son referentes continentales de acceso accesible.</p>
-        <div class="tags"><span class="tag">Ciencias</span><span class="tag">Humanidades</span><span class="tag">Medicina</span><span class="tag">Ingeniería</span></div>
+        <p class="card-desc">La UNAM es la universidad más grande e influyente del mundo hispanohablante y está clasificada entre las 100 mejores del mundo, siendo consistentemente la primera universidad de Iberoamérica. Su Ciudad Universitaria en el sur de Ciudad de México es Patrimonio Cultural de la Humanidad por la UNESCO, celebrada por su arquitectura monumental y los murales de Diego Rivera, David Alfaro Siqueiros y Juan O'Gorman que adornan sus edificios principales. Es el principal centro de producción científica de América Latina, con más de 40,000 publicaciones anuales en revistas indexadas. Sus programas de posgrado —más de 400 opciones en todas las áreas— tienen una reputación continental inigualable y costos muy accesibles para becados latinoamericanos, especialmente en Ciencias, Humanidades, Ingeniería y Artes.</p>
+        <div class="card-tags"><span class="tag">Ciencias</span><span class="tag">Humanidades</span><span class="tag">Medicina</span><span class="tag">Artes</span><span class="tag">Ingeniería</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.unam.mx" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -1050,21 +1016,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/IPN_CICS_Santo_Tomas.jpg/1200px-IPN_CICS_Santo_Tomas.jpg" alt="IPN" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Ciudad de México</span>
-        <div class="card-image-title">Instituto Politécnico Nacional (IPN)</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/IPN_CICS_Santo_Tomas.jpg/1200px-IPN_CICS_Santo_Tomas.jpg"
+            alt="IPN"
+            onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Ciudad de México</span>
+        <div class="card-img-title">Instituto Politécnico Nacional (IPN)</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1936</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">90+</span><span class="stat-label">Centros académicos</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">#2 pública</span><span class="stat-label">México</span></div>
+          <div class="stat"><span class="stat-val">1936</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">90+</span><span class="stat-lbl">Centros académicos</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">#2 pública</span><span class="stat-lbl">México</span></div>
         </div>
-        <p class="university-info">El IPN es la segunda institución pública más importante de México y el principal centro de formación en ingeniería, ciencias aplicadas y tecnología del país. Creado durante el gobierno de Lázaro Cárdenas como motor del desarrollo industrial nacional, hoy cuenta con más de 90 centros y unidades académicas. Su Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME) es legendaria en México. Sus programas de posgrado son altamente valorados en la industria manufacturera, petrolera y de telecomunicaciones latinoamericana.</p>
-        <div class="tags"><span class="tag">Ing. Mecánica</span><span class="tag">Eléctrica</span><span class="tag">Computación</span><span class="tag">Petroquímica</span></div>
+        <p class="card-desc">El IPN es la segunda institución pública más importante de México y el principal centro de formación en ingeniería, ciencias aplicadas y tecnología del país. Creado en 1936 durante el gobierno del presidente Lázaro Cárdenas como motor del desarrollo industrial nacional, hoy cuenta con más de 90 centros y unidades académicas distribuidas en toda la República. Su emblemática ESIME (Escuela Superior de Ingeniería Mecánica y Eléctrica) es legendaria en el imaginario tecnológico mexicano. El CINVESTAV (Centro de Investigación y Estudios Avanzados del IPN) es uno de los centros de investigación científica más productivos de América Latina, con más de 300 investigadores nacionales y publicaciones en Nature y Science. Sus programas de posgrado son altamente valorados en la industria manufacturera, petrolera, aeronáutica y de telecomunicaciones.</p>
+        <div class="card-tags"><span class="tag">Ing. Mecánica</span><span class="tag">Eléctrica</span><span class="tag">Computación</span><span class="tag">Petroquímica</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.ipn.mx" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -1074,21 +1042,23 @@ footer strong { color: var(--gold-light); }
 
     <div class="university-card">
       <div class="card-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ibero_campus_Santa_Fe.jpg/1200px-Ibero_campus_Santa_Fe.jpg" alt="IBERO" onerror="this.style.opacity='0'">
-        <div class="card-image-overlay"></div>
-        <span class="card-country-tag">Ciudad de México</span>
-        <div class="card-image-title">Universidad Iberoamericana</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ibero_campus_Santa_Fe.jpg/1200px-Ibero_campus_Santa_Fe.jpg"
+            alt="IBERO"
+            onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800&q=80'">
+        <div class="card-img-overlay"></div>
+        <span class="card-location-tag">Ciudad de México</span>
+        <div class="card-img-title">Universidad Iberoamericana</div>
       </div>
       <div class="card-body">
         <div class="card-stats">
-          <div class="stat"><span class="stat-value">1943</span><span class="stat-label">Fundación</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Jesuita</span><span class="stat-label">Red global</span></div>
-          <div class="divider"></div>
-          <div class="stat"><span class="stat-value">Santa Fe</span><span class="stat-label">Distrito corporativo CDMX</span></div>
+          <div class="stat"><span class="stat-val">1943</span><span class="stat-lbl">Fundación</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Jesuita</span><span class="stat-lbl">Red global</span></div>
+          <div class="sdivider"></div>
+          <div class="stat"><span class="stat-val">Santa Fe</span><span class="stat-lbl">Distrito corporativo CDMX</span></div>
         </div>
-        <p class="university-info">La Iberoamericana es la universidad jesuita más destacada de México, ubicada en Santa Fe, principal distrito financiero y corporativo de Ciudad de México. Reconocida en Administración, Comunicación, Diseño, Psicología y Humanidades. Pertenece a la misma red jesuita que Georgetown, Boston College y la Javeriana de Colombia. Sus egresados lideran medios de comunicación, agencias creativas y empresas de consultoría de todo el país. Ofrece varios programas bilingüe y de doble titulación con universidades europeas e iberoamericanas.</p>
-        <div class="tags"><span class="tag">Administración</span><span class="tag">Comunicación</span><span class="tag">Diseño</span><span class="tag">Psicología</span></div>
+        <p class="card-desc">La Iberoamericana es la universidad jesuita más destacada de México, ubicada en Santa Fe, el principal distrito financiero y corporativo de Ciudad de México donde se concentran las sedes de las empresas más grandes del país. Forma parte de la misma red internacional jesuita que Georgetown, Boston College y la Pontificia Universidad Javeriana de Colombia, lo que facilita intercambios y dobles titulaciones internacionales. Reconocida en Administración Estratégica, Comunicación Corporativa, Diseño Industrial, Psicología Clínica y Humanidades. Sus egresados ocupan posiciones de liderazgo en los principales medios de comunicación, agencias creativas y consultoras de México y América Latina, con una red de alumni extraordinariamente activa en el mercado del conocimiento y la cultura.</p>
+        <div class="card-tags"><span class="tag">Administración</span><span class="tag">Comunicación</span><span class="tag">Diseño</span><span class="tag">Psicología</span><span class="tag">Humanidades</span></div>
         <div class="card-footer">
           <span class="status-badge">Becas MESCyT 2026: Cerrada</span>
           <a href="https://www.ibero.mx" target="_blank" class="link-btn">Sitio oficial →</a>
@@ -1099,28 +1069,18 @@ footer strong { color: var(--gold-light); }
   </div>
 </section>
 
+<!--Nota (No tan importante) -->
 <div class="notice">
-  <strong>Nota importante:</strong> Información actualizada al 29 de abril de 2026. Los estados de las convocatorias cambian constantemente — siempre verifica en <a href="https://becas.gob.do/" target="_blank">becas.gob.do</a> y en los sitios web de cada institución. Las postulaciones oficiales se realizan exclusivamente a través de dicha plataforma.
+  <strong>Nota importante:</strong> Información actualizada al 29 de abril de 2026. Los estados de las convocatorias cambian constantemente. Verifica siempre en <a href="https://becas.gob.do/" target="_blank">becas.gob.do</a> y en los sitios web de cada institución. Las postulaciones oficiales se realizan exclusivamente a través de la plataforma oficial del MESCyT.
 </div>
 
 </main>
 
 <footer>
   <strong>Gestión de Becas Nacionales e Internacionales · MESCyT</strong><br>
-  Información actualizada a abril 2026 · Verifica siempre en las fuentes oficiales
+  Verifica siempre en las fuentes oficiales
 </footer>
 
-<script>
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-    const country = this.dataset.country;
-    document.querySelectorAll('.country-section').forEach(section => {
-      section.style.display = (country === 'all' || section.dataset.country === country) ? 'block' : 'none';
-    });
-  });
-});
-</script>
+<script src="./js/universidades.js"></script>
 </body>
 </html>
