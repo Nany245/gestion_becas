@@ -15,7 +15,6 @@
   --radius:         10px;
 }
 
-/* ── RESET & BASE ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 html { scroll-behavior: smooth; }
@@ -26,7 +25,6 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   min-height: 100vh;
-  /* The big fade: red → black */
   background:
     linear-gradient(
       to bottom,
@@ -40,12 +38,10 @@ body {
   background-attachment: fixed;
 }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0a0000; }
 ::-webkit-scrollbar-thumb { background: var(--bar-top); border-radius: 3px; }
 
-/* ── HEADER ── */
 .site-header {
   background: var(--bar-top);
   border-bottom: 1.5px solid var(--border-color);
@@ -83,7 +79,6 @@ body {
   box-shadow: var(--shadow-glow);
 }
 
-/* ── HERO ── */
 .hero {
   padding: 90px 40px 80px;
   text-align: center;
@@ -148,7 +143,6 @@ body {
 .status-pill .s-value { font-weight: 600; font-size: 0.9rem; color: #ff6b6b; letter-spacing: 0.04em; }
 .status-pill .s-sub { font-size: 0.72rem; color: var(--text-dim); }
 
-/* ── FILTERS ── */
 .filters-bar {
   background: rgba(0,0,0,0.7);
   border-bottom: 1px solid rgba(255,26,26,0.2);
@@ -192,7 +186,6 @@ body {
   padding: 56px 40px 90px;
 }
 
-/* ── COUNTRY HEADING ── */
 .country-section { margin-bottom: 72px; }
 .country-heading {
   display: flex; align-items: center; gap: 14px;
@@ -215,7 +208,6 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* ── GRID ── */
 .universities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
@@ -309,7 +301,7 @@ body {
 }
 .sdivider { width: 1px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
 
-/* DESCRIPTION */
+/* DESCRIPCION */
 .card-desc {
   font-size: 0.9rem;
   color: var(--text-main);
@@ -327,7 +319,6 @@ body {
   padding: 3px 9px; border-radius: 50px;
 }
 
-/* FOOTER ROW */
 .card-footer {
   display: flex; align-items: center;
   justify-content: space-between; flex-wrap: wrap; gap: 8px;
@@ -359,7 +350,6 @@ body {
 }
 .link-btn:hover { opacity: 1; gap: 10px; text-shadow: 0 0 10px rgba(92,200,255,0.5); }
 
-/* MODALIDADES */
 .modalidades {
   border-top: 1px solid rgba(255,255,255,0.06);
   padding-top: 12px;
@@ -379,7 +369,6 @@ body {
   color: var(--border-color);
 }
 
-/* ── NOTICE ── */
 .notice {
   background: rgba(0,0,0,0.55);
   border-left: 3px solid var(--gold);
