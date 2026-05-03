@@ -37,20 +37,76 @@
   </div>
 </section>
 
-<!--Filtros-->
-<div class="filters-bar">
+<!--Filtros Avanzados-->
+<div class="filters-bar advanced-filters">
   <div class="filters-inner">
-    <span class="filter-label">País</span>
-    <button class="filter-btn active" data-country="all">Todas</button>
-    <button class="filter-btn" data-country="rd">🇩🇴 Rep. Dominicana</button>
-    <button class="filter-btn" data-country="usa">🇺🇸 EE.UU.</button>
-    <button class="filter-btn" data-country="canada">🇨🇦 Canadá</button>
-    <button class="filter-btn" data-country="espana">🇪🇸 España</button>
-    <button class="filter-btn" data-country="alemania">🇩🇪 Alemania</button>
-    <button class="filter-btn" data-country="japon">🇯🇵 Japón</button>
-    <button class="filter-btn" data-country="colombia">🇨🇴 Colombia</button>
-    <button class="filter-btn" data-country="china">🇨🇳 China</button>
-    <button class="filter-btn" data-country="mexico">🇲🇽 Mexico</button>
+    
+    <div class="search-box">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="searchInput" placeholder="Buscar universidad, carrera o palabra clave...">
+    </div>
+
+    <div class="filter-controls">
+      <div class="filter-group">
+        <label>Región</label>
+        <div class="select-wrapper">
+          <select id="regionFilter">
+            <option value="all">Todas las Regiones</option>
+            <option value="latam">América Latina</option>
+            <option value="na">América del Norte</option>
+            <option value="europa">Europa</option>
+            <option value="asia">Asia</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>País</label>
+        <div class="select-wrapper">
+          <select id="countryFilter">
+            <option value="all">Todos los Países</option>
+            <option value="rd">Rep. Dominicana</option>
+            <option value="usa">Estados Unidos</option>
+            <option value="canada">Canadá</option>
+            <option value="espana">España</option>
+            <option value="alemania">Alemania</option>
+            <option value="japon">Japón</option>
+            <option value="colombia">Colombia</option>
+            <option value="china">China</option>
+            <option value="mexico">México</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Tipo de Beca</label>
+        <div class="select-wrapper">
+          <select id="scholarshipFilter">
+            <option value="all">Todos los Tipos</option>
+            <option value="academica">Académica</option>
+            <option value="economica">Necesidad Económica</option>
+            <option value="deportiva">Deportiva</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Convocatoria</label>
+        <div class="select-wrapper">
+          <select id="statusFilter">
+            <option value="all">Cualquier Estado</option>
+            <option value="abierta">Abierta</option>
+            <option value="proximamente">Próximamente</option>
+            <option value="cerrada">Cerrada</option>
+          </select>
+        </div>
+      </div>
+      
+      <button id="resetFiltersBtn" class="reset-btn" title="Limpiar Filtros">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+    </div>
+
   </div>
 </div>
 
